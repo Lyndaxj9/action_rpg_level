@@ -1,0 +1,324 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BDBE364B1E972A4000589699 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BDBE364A1E972A4000589699 /* main.m */; };
+		BDBE364E1E972A4000589699 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BDBE364D1E972A4000589699 /* AppDelegate.m */; };
+		BDBE36551E972A4100589699 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = BDBE36541E972A4100589699 /* GameScene.m */; };
+		BDBE36581E972A4100589699 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDBE36571E972A4100589699 /* GameViewController.m */; };
+		BDBE365B1E972A4100589699 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDBE36591E972A4100589699 /* Main.storyboard */; };
+		BDBE365D1E972A4100589699 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDBE365C1E972A4100589699 /* Assets.xcassets */; };
+		BDBE36601E972A4100589699 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDBE365E1E972A4100589699 /* LaunchScreen.storyboard */; };
+		BDBE36681E972E6400589699 /* red-button-hi.png in Resources */ = {isa = PBXBuildFile; fileRef = BDBE36671E972E6400589699 /* red-button-hi.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		BDBE36461E972A4000589699 /* p06-ademola.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "p06-ademola.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDBE364A1E972A4000589699 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BDBE364C1E972A4000589699 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BDBE364D1E972A4000589699 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BDBE36531E972A4100589699 /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		BDBE36541E972A4100589699 /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
+		BDBE36561E972A4100589699 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		BDBE36571E972A4100589699 /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		BDBE365A1E972A4100589699 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BDBE365C1E972A4100589699 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BDBE365F1E972A4100589699 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BDBE36611E972A4100589699 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BDBE36671E972E6400589699 /* red-button-hi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red-button-hi.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BDBE36431E972A4000589699 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BDBE363D1E972A4000589699 = {
+			isa = PBXGroup;
+			children = (
+				BDBE36481E972A4000589699 /* p06-ademola */,
+				BDBE36471E972A4000589699 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BDBE36471E972A4000589699 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BDBE36461E972A4000589699 /* p06-ademola.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BDBE36481E972A4000589699 /* p06-ademola */ = {
+			isa = PBXGroup;
+			children = (
+				BDBE364C1E972A4000589699 /* AppDelegate.h */,
+				BDBE364D1E972A4000589699 /* AppDelegate.m */,
+				BDBE36531E972A4100589699 /* GameScene.h */,
+				BDBE36541E972A4100589699 /* GameScene.m */,
+				BDBE36561E972A4100589699 /* GameViewController.h */,
+				BDBE36571E972A4100589699 /* GameViewController.m */,
+				BDBE36591E972A4100589699 /* Main.storyboard */,
+				BDBE365C1E972A4100589699 /* Assets.xcassets */,
+				BDBE365E1E972A4100589699 /* LaunchScreen.storyboard */,
+				BDBE36611E972A4100589699 /* Info.plist */,
+				BDBE36491E972A4000589699 /* Supporting Files */,
+			);
+			path = "p06-ademola";
+			sourceTree = "<group>";
+		};
+		BDBE36491E972A4000589699 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BDBE36671E972E6400589699 /* red-button-hi.png */,
+				BDBE364A1E972A4000589699 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BDBE36451E972A4000589699 /* p06-ademola */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDBE36641E972A4100589699 /* Build configuration list for PBXNativeTarget "p06-ademola" */;
+			buildPhases = (
+				BDBE36421E972A4000589699 /* Sources */,
+				BDBE36431E972A4000589699 /* Frameworks */,
+				BDBE36441E972A4000589699 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "p06-ademola";
+			productName = "p06-ademola";
+			productReference = BDBE36461E972A4000589699 /* p06-ademola.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BDBE363E1E972A4000589699 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = Lynda;
+				TargetAttributes = {
+					BDBE36451E972A4000589699 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = BDBE36411E972A4000589699 /* Build configuration list for PBXProject "p06-ademola" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BDBE363D1E972A4000589699;
+			productRefGroup = BDBE36471E972A4000589699 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BDBE36451E972A4000589699 /* p06-ademola */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BDBE36441E972A4000589699 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDBE365B1E972A4100589699 /* Main.storyboard in Resources */,
+				BDBE365D1E972A4100589699 /* Assets.xcassets in Resources */,
+				BDBE36681E972E6400589699 /* red-button-hi.png in Resources */,
+				BDBE36601E972A4100589699 /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BDBE36421E972A4000589699 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDBE36581E972A4100589699 /* GameViewController.m in Sources */,
+				BDBE364E1E972A4000589699 /* AppDelegate.m in Sources */,
+				BDBE36551E972A4100589699 /* GameScene.m in Sources */,
+				BDBE364B1E972A4000589699 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BDBE36591E972A4100589699 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BDBE365A1E972A4100589699 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BDBE365E1E972A4100589699 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BDBE365F1E972A4100589699 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BDBE36621E972A4100589699 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		BDBE36631E972A4100589699 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BDBE36651E972A4100589699 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "p06-ademola/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "cs441.p06-ademola";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		BDBE36661E972A4100589699 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "p06-ademola/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "cs441.p06-ademola";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BDBE36411E972A4000589699 /* Build configuration list for PBXProject "p06-ademola" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDBE36621E972A4100589699 /* Debug */,
+				BDBE36631E972A4100589699 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDBE36641E972A4100589699 /* Build configuration list for PBXNativeTarget "p06-ademola" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDBE36651E972A4100589699 /* Debug */,
+				BDBE36661E972A4100589699 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BDBE363E1E972A4000589699 /* Project object */;
+}
