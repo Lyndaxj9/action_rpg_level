@@ -1,14 +1,14 @@
 //
-//  GameScene.h
+//  IntroScene.h
 //  p06-ademola
 //
-//  Created by Lynda on 4/6/17.
+//  Created by Lynda on 4/9/17.
 //  Copyright © 2017 Lynda. All rights reserved.
 //
 
 #import <SpriteKit/SpriteKit.h>
-#import "IntroScene.h"
+#import "BattleScene.h"
 
-@interface GameScene : SKScene
+@interface IntroScene : SKScene
 
 @end

@@ -57,14 +57,19 @@
     
     
     if([node.name isEqualToString:@"startbutton"]) {
-        NSLog(@"StartButton Touched");
-        //[self startGame];
+        //NSLog(@"StartButton Touched");
+        [self startGame];
     }
 }
 
-
--(void)update:(CFTimeInterval)currentTime {
-    // Called before each frame is rendered
+//switch to new scene -> IntroScene
+- (void) startGame
+{
+    SKScene *intro = [[IntroScene alloc]initWithSize:self.size];
+    SKTransition *doors = [SKTransition doorsOpenVerticalWithDuration:0.5];
+    [self.view presentScene:intro transition:doors];
+    
+    NSLog(@"startGame called.");
 }
 
 @end
