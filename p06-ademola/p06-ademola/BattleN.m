@@ -46,7 +46,7 @@
             l.position = CGPointMake(0, 0);
             l.zPosition = 5;
             l.text = [NSString stringWithFormat:@"%d",i];
-            l.name = [NSString stringWithFormat:@"spelllabel0%d", i];
+            l.name = [NSString stringWithFormat:@"spellbutton0%d", i];
             [s addChild:l];
         }
         

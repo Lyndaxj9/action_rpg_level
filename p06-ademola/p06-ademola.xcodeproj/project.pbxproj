@@ -26,6 +26,7 @@
 		BDC63C571EA07C76002FAABA /* FireBall.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC63C561EA07C76002FAABA /* FireBall.m */; };
 		BDC63C5A1EA07CC4002FAABA /* Heal.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC63C591EA07CC4002FAABA /* Heal.m */; };
 		BDC63C5D1EA07CF2002FAABA /* Slash.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC63C5C1EA07CF2002FAABA /* Slash.m */; };
+		BDC63C5F1EA07E31002FAABA /* Notes.rtf in Resources */ = {isa = PBXBuildFile; fileRef = BDC63C5E1EA07E31002FAABA /* Notes.rtf */; };
 		BDFA9C001E9B2ADD00E1D204 /* IntroScene.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFA9BFF1E9B2ADD00E1D204 /* IntroScene.m */; };
 		BDFA9C031E9B2AEF00E1D204 /* BattleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFA9C021E9B2AEF00E1D204 /* BattleScene.m */; };
 /* End PBXBuildFile section */
@@ -66,6 +67,7 @@
 		BDC63C591EA07CC4002FAABA /* Heal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heal.m; sourceTree = "<group>"; };
 		BDC63C5B1EA07CF2002FAABA /* Slash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Slash.h; sourceTree = "<group>"; };
 		BDC63C5C1EA07CF2002FAABA /* Slash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Slash.m; sourceTree = "<group>"; };
+		BDC63C5E1EA07E31002FAABA /* Notes.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Notes.rtf; sourceTree = "<group>"; };
 		BDFA9BFE1E9B2ADD00E1D204 /* IntroScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroScene.h; sourceTree = "<group>"; };
 		BDFA9BFF1E9B2ADD00E1D204 /* IntroScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroScene.m; sourceTree = "<group>"; };
 		BDFA9C011E9B2AEF00E1D204 /* BattleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BattleScene.h; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				BDC63C371EA07813002FAABA /* guyanime.png */,
 				BDBE36671E972E6400589699 /* red-button-hi.png */,
 				BDBE364A1E972A4000589699 /* main.m */,
+				BDC63C5E1EA07E31002FAABA /* Notes.rtf */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 			files = (
 				BDBE365B1E972A4100589699 /* Main.storyboard in Resources */,
 				BDBE365D1E972A4100589699 /* Assets.xcassets in Resources */,
+				BDC63C5F1EA07E31002FAABA /* Notes.rtf in Resources */,
 				BDC63C381EA07813002FAABA /* guyanime.png in Resources */,
 				BDBE36681E972E6400589699 /* red-button-hi.png in Resources */,
 				BDBE36601E972A4100589699 /* LaunchScreen.storyboard in Resources */,
