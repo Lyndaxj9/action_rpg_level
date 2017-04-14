@@ -8,7 +8,9 @@
 
 #import <SpriteKit/SpriteKit.h>
 #import "BattleScene.h"
+#import "IntroN.h"
 
 @interface IntroScene : SKScene
+@property (nonatomic) IntroN *introN;
 
 @end

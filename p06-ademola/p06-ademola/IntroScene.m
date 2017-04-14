@@ -10,6 +10,30 @@
 
 @implementation IntroScene
 
+- (void)didMoveToView:(SKView *)view
+{
+    [self createSceneContents];
+}
+
+- (void)createSceneContents
+{
+    _introN = [[IntroN alloc]initWithSize:self.size];
+    [self addChild:_introN];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+
+     UITouch *touch = [touches anyObject];
+     CGPoint location = [touch locationInNode:self];
+     SKNode *node = [self nodeAtPoint:location];
+     
+     if([node.name isEqualToString:@"nextbutton"]) {
+     [self createBattleScene];
+     }
+
+}
+
 - (void)createBattleScene
 {
     SKScene *battleS = [[BattleScene alloc]initWithSize:self.size];
@@ -19,18 +43,6 @@
     NSLog(@"createBattleScene called.");
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    [self createBattleScene];
-    /*
-    UITouch *touch = [touches anyObject];
-    CGPoint location = [touch locationInNode:self];
-    SKNode *node = [self nodeAtPoint:location];
-    
-    if([node.name isEqualToString:@"nextbutton"]) {
-        [self createBattleScene];
-    }
-     */
-}
+
 
 @end
