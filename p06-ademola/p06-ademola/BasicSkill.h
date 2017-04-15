@@ -11,6 +11,7 @@
 @class Entity;
 
 @protocol BasicSkill <NSObject>
-//- (void)execute;
+@property (nonatomic) NSString *attackName;
+
 - (void)execute:(Entity *)target;
 @end

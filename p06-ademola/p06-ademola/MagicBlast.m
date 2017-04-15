@@ -9,6 +9,7 @@
 #import "MagicBlast.h"
 
 @implementation MagicBlast
+@synthesize attackName;
 
 - (id)init
 {
@@ -17,6 +18,7 @@
     if(self){
         _minDamage = 10;
         _cooldown = 5;
+        attackName = @"magicblast";
     }
     
     return self;

@@ -18,6 +18,7 @@
 //if 1 blocks out all damage if 0 takes all damage
 @property (nonatomic) float defense;
 @property (nonatomic) double attackSpeed, timePassed;
+@property (nonatomic) NSString *usedSkill;
 
 - (instancetype) init;
 - (void)takeDamage:(float)damageAmnt;

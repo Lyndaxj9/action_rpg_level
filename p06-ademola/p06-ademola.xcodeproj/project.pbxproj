@@ -27,6 +27,8 @@
 		BDC63C5A1EA07CC4002FAABA /* Heal.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC63C591EA07CC4002FAABA /* Heal.m */; };
 		BDC63C5D1EA07CF2002FAABA /* Slash.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC63C5C1EA07CF2002FAABA /* Slash.m */; };
 		BDC63C5F1EA07E31002FAABA /* Notes.rtf in Resources */ = {isa = PBXBuildFile; fileRef = BDC63C5E1EA07E31002FAABA /* Notes.rtf */; };
+		BDDD390A1EA1B665001CEE0E /* ogresprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = BDDD39091EA1B665001CEE0E /* ogresprites.atlas */; };
+		BDDD390C1EA1C200001CEE0E /* magesprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = BDDD390B1EA1C200001CEE0E /* magesprites.atlas */; };
 		BDFA9C001E9B2ADD00E1D204 /* IntroScene.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFA9BFF1E9B2ADD00E1D204 /* IntroScene.m */; };
 		BDFA9C031E9B2AEF00E1D204 /* BattleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFA9C021E9B2AEF00E1D204 /* BattleScene.m */; };
 /* End PBXBuildFile section */
@@ -68,6 +70,8 @@
 		BDC63C5B1EA07CF2002FAABA /* Slash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Slash.h; sourceTree = "<group>"; };
 		BDC63C5C1EA07CF2002FAABA /* Slash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Slash.m; sourceTree = "<group>"; };
 		BDC63C5E1EA07E31002FAABA /* Notes.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Notes.rtf; sourceTree = "<group>"; };
+		BDDD39091EA1B665001CEE0E /* ogresprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = ogresprites.atlas; sourceTree = "<group>"; };
+		BDDD390B1EA1C200001CEE0E /* magesprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = magesprites.atlas; sourceTree = "<group>"; };
 		BDFA9BFE1E9B2ADD00E1D204 /* IntroScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroScene.h; sourceTree = "<group>"; };
 		BDFA9BFF1E9B2ADD00E1D204 /* IntroScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroScene.m; sourceTree = "<group>"; };
 		BDFA9C011E9B2AEF00E1D204 /* BattleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BattleScene.h; sourceTree = "<group>"; };
@@ -104,6 +108,8 @@
 		BDBE36481E972A4000589699 /* p06-ademola */ = {
 			isa = PBXGroup;
 			children = (
+				BDDD390B1EA1C200001CEE0E /* magesprites.atlas */,
+				BDDD39091EA1B665001CEE0E /* ogresprites.atlas */,
 				BDBE364C1E972A4000589699 /* AppDelegate.h */,
 				BDBE364D1E972A4000589699 /* AppDelegate.m */,
 				BDC63C391EA0782F002FAABA /* Nodes */,
@@ -245,11 +251,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDDD390C1EA1C200001CEE0E /* magesprites.atlas in Resources */,
 				BDBE365B1E972A4100589699 /* Main.storyboard in Resources */,
 				BDBE365D1E972A4100589699 /* Assets.xcassets in Resources */,
 				BDC63C5F1EA07E31002FAABA /* Notes.rtf in Resources */,
 				BDC63C381EA07813002FAABA /* guyanime.png in Resources */,
 				BDBE36681E972E6400589699 /* red-button-hi.png in Resources */,
+				BDDD390A1EA1B665001CEE0E /* ogresprites.atlas in Resources */,
 				BDBE36601E972A4100589699 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

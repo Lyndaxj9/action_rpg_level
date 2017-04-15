@@ -13,6 +13,7 @@
 
 @property (nonatomic) float minDamage;
 @property (nonatomic) double cooldown, timePassed;
+@property (nonatomic) NSString *attackName;
 
 - (void)execute:(Entity *)a_target;
 

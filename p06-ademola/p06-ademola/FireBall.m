@@ -9,6 +9,7 @@
 #import "FireBall.h"
 
 @implementation FireBall
+@synthesize attackName;
 
 - (id)init
 {
@@ -17,6 +18,7 @@
     if(self){
         _minDamage = 12;
         _cooldown = 7;
+        attackName = @"fireball";
     }
     
     return self;

@@ -9,6 +9,7 @@
 #import "Slash.h"
 
 @implementation Slash
+@synthesize attackName;
 
 - (id)init
 {
@@ -17,6 +18,7 @@
     if(self){
         _minDamage = 10;
         _cooldown = 1;
+        attackName = @"slash";
     }
     
     return self;

@@ -25,13 +25,8 @@
         _hotbar.strokeColor = [SKColor blackColor];
         [self addChild:_hotbar];
         
-        SKLabelNode *exp = [SKLabelNode labelNodeWithFontNamed:@"Cochin"];
-        exp.fontColor = [SKColor blackColor];
-        exp.fontSize = 20;
-        exp.position = CGPointMake(_width/2, _height/2);
-        exp.name = @"explaination";
-        exp.text = @"top bar player health, bottom enemy health";
-        [self addChild:exp];
+        [self createEnemy];
+        [self createPlayer];
         
         //spells
         for(int i = 0; i < 5; i++){
@@ -53,6 +48,43 @@
     }
     
     return self;
+}
+
+- (void)createEnemy
+{
+    SKTextureAtlas *os = [SKTextureAtlas atlasNamed:@"ogresprites"];
+    SKTexture *ob0 = [os textureNamed:@"ogre_breath_0"];
+    SKTexture *ob1 = [os textureNamed:@"ogre_breath_1"];
+    NSArray *ob = @[ob0, ob1];
+    SKAction *obg = [SKAction animateWithTextures:ob timePerFrame:0.7 resize:YES restore:YES];
+    
+    _enemy = [SKSpriteNode spriteNodeWithTexture:ob1];
+    _enemy.position = CGPointMake(100, 250);
+    //_enemy.size = CGSizeMake(100, 100);
+    _enemy.xScale = _enemy.xScale * -1;
+    [self addChild:_enemy];
+    [_enemy runAction:[SKAction repeatActionForever:obg]];
+}
+
+- (void)createPlayer
+{
+    SKTextureAtlas *ms = [SKTextureAtlas atlasNamed:@"magesprites"];
+    SKTexture *mr0 = [ms textureNamed:@"mage_rest_0"];
+    SKTexture *mr1 = [ms textureNamed:@"mage_rest_1"];
+    NSArray *mr = @[mr0, mr1];
+    SKAction *mrg = [SKAction animateWithTextures:mr timePerFrame:0.7 resize:YES restore:YES];
+    
+    _player = [SKSpriteNode spriteNodeWithTexture:mr1];
+    _player.position = CGPointMake(300, 250);
+    //_enemy.size = CGSizeMake(100, 100);
+    _player.xScale = _player.xScale * -1;
+    [self addChild:_player];
+    [_player runAction:[SKAction repeatActionForever:mrg]];
+}
+
+- (void)initAnimations
+{
+    
 }
 
 @end

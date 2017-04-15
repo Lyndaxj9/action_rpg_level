@@ -11,6 +11,8 @@
 @implementation Entity
 
 @synthesize timePassed, attackSpeed;
+@synthesize usedSkill;
+
 - (instancetype)init
 {
     self = [super init];
@@ -20,6 +22,7 @@
         _health = [[Health alloc] init];
         timePassed = 0;
         attackSpeed = 2;
+        usedSkill = @"";
     }
     
     return self;
@@ -43,6 +46,7 @@
     //actually do
     
     //NSLog(@"useSKill called");
+    usedSkill = [basicSkill attackName];
     [basicSkill execute:target];
 }
 

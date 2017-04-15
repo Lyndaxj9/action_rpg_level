@@ -9,6 +9,7 @@
 #import "Heal.h"
 
 @implementation Heal
+@synthesize attackName;
 
 - (id)init
 {
@@ -17,6 +18,7 @@
     if(self){
         _minDamage = -15;
         _cooldown = 7;
+        attackName = @"heal";
     }
     
     return self;
