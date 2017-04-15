@@ -15,5 +15,11 @@
 @property (nonatomic) SKSpriteNode *healthBar;
 @property (nonatomic) SKShapeNode *hotbar;
 
+@property (nonatomic) SKTextureAtlas *es;
+@property (nonatomic) SKTextureAtlas *ps;
+@property (nonatomic) SKAction *obg;
+@property (nonatomic) SKAction *eslash;
+
 - (id)initWithSize:(CGSize)frame;
+- (void)animateSkill:(NSString *)skillName;
 @end

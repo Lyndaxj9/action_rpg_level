@@ -25,8 +25,13 @@
         _hotbar.strokeColor = [SKColor blackColor];
         [self addChild:_hotbar];
         
+        _es = [SKTextureAtlas atlasNamed:@"ogresprites"];
+        _ps = [SKTextureAtlas atlasNamed:@"magesprites"];
+        
+        [self initAnimations];
         [self createEnemy];
         [self createPlayer];
+        
         
         //spells
         for(int i = 0; i < 5; i++){
@@ -52,39 +57,55 @@
 
 - (void)createEnemy
 {
-    SKTextureAtlas *os = [SKTextureAtlas atlasNamed:@"ogresprites"];
-    SKTexture *ob0 = [os textureNamed:@"ogre_breath_0"];
-    SKTexture *ob1 = [os textureNamed:@"ogre_breath_1"];
+    SKTexture *ob0 = [_es textureNamed:@"ogre_breath_0"];
+    SKTexture *ob1 = [_es textureNamed:@"ogre_breath_1"];
     NSArray *ob = @[ob0, ob1];
-    SKAction *obg = [SKAction animateWithTextures:ob timePerFrame:0.7 resize:YES restore:YES];
+    _obg = [SKAction animateWithTextures:ob timePerFrame:0.7 resize:YES restore:YES];
     
     _enemy = [SKSpriteNode spriteNodeWithTexture:ob1];
     _enemy.position = CGPointMake(100, 250);
-    //_enemy.size = CGSizeMake(100, 100);
     _enemy.xScale = _enemy.xScale * -1;
     [self addChild:_enemy];
-    [_enemy runAction:[SKAction repeatActionForever:obg]];
+    [_enemy runAction:[SKAction repeatActionForever:_obg] withKey:@"idleAni"];
+    //[_enemy runAction:_eslash withKey:@"slashAni"];
 }
 
 - (void)createPlayer
 {
-    SKTextureAtlas *ms = [SKTextureAtlas atlasNamed:@"magesprites"];
-    SKTexture *mr0 = [ms textureNamed:@"mage_rest_0"];
-    SKTexture *mr1 = [ms textureNamed:@"mage_rest_1"];
+    SKTexture *mr0 = [_ps textureNamed:@"mage_rest_0"];
+    SKTexture *mr1 = [_ps textureNamed:@"mage_rest_1"];
     NSArray *mr = @[mr0, mr1];
     SKAction *mrg = [SKAction animateWithTextures:mr timePerFrame:0.7 resize:YES restore:YES];
     
     _player = [SKSpriteNode spriteNodeWithTexture:mr1];
     _player.position = CGPointMake(300, 250);
-    //_enemy.size = CGSizeMake(100, 100);
     _player.xScale = _player.xScale * -1;
     [self addChild:_player];
-    [_player runAction:[SKAction repeatActionForever:mrg]];
+    [_player runAction:[SKAction repeatActionForever:mrg] withKey:@"idleAni"];
 }
 
 - (void)initAnimations
 {
+    NSMutableArray *enemySlash = [NSMutableArray array];
     
+    for(int i = 0; i < 11; i++){
+        NSString *textureName = [NSString stringWithFormat:@"ogre_slash_%d", i];
+        SKTexture *texture = [SKTexture textureWithImageNamed:textureName];
+        [enemySlash addObject:texture];
+    }
+    
+    _eslash = [SKAction animateWithTextures:enemySlash timePerFrame:0.1 resize:YES restore:YES];
 }
 
+- (void)animateSkill:(NSString *)skillName
+{
+    if([skillName  isEqual: @"slash"]){
+        NSLog(@"animateSkill slash");
+        [_enemy removeActionForKey:@"idleAni"];
+        SKAction *seq = [SKAction sequence:@[_eslash, [SKAction repeatActionForever:_obg]]];
+        [_enemy runAction:seq withKey:@"slashAni"];
+        //[_enemy runAction:_eslash withKey:@"slashAni"];
+        //[_enemy runAction:[SKAction repeatActionForever:_obg] withKey:@"idleAni"];
+    }
+}
 @end

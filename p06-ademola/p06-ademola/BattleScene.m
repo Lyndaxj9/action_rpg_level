@@ -79,6 +79,8 @@
     self.deltaTime = MIN(1.0/30.0, currentTime - self.previousTime);
     self.previousTime = currentTime;
     [self.testC update:self.deltaTime];
+    [_battleN animateSkill:[_testE usedSkill]];
+    [_testE setUsedSkill:@""];
     [self.healthBar updateWithHealth:self.health];
     [self.healthBar1 updateWithHealth:self.health1];
     
