@@ -18,9 +18,10 @@
 @property (nonatomic) SKTextureAtlas *es;
 @property (nonatomic) SKTextureAtlas *ps;
 @property (nonatomic) SKAction *obg, *mrg;
-@property (nonatomic) SKAction *eslash;
-@property (nonatomic) SKAction *pspell;
+@property (nonatomic) SKAction *eslash, *edamage;
+@property (nonatomic) SKAction *pspell, *pdamage;
 
 - (id)initWithSize:(CGSize)frame;
-- (void)animateSkill:(NSString *)skillName;
+//- (void)animateSkill:(NSString *)skillName;
+- (void)animateSkill:(NSString *)skillName withId:(int)entityid;
 @end

@@ -63,7 +63,7 @@
     _obg = [SKAction animateWithTextures:ob timePerFrame:0.7 resize:YES restore:YES];
     
     _enemy = [SKSpriteNode spriteNodeWithTexture:ob1];
-    _enemy.position = CGPointMake(100, 250);
+    _enemy.position = CGPointMake(50, 250);
     _enemy.anchorPoint = CGPointMake(1, 0.5);
     _enemy.xScale = _enemy.xScale * -1;
     [self addChild:_enemy];
@@ -80,6 +80,7 @@
     
     _player = [SKSpriteNode spriteNodeWithTexture:mr1];
     _player.position = CGPointMake(300, 250);
+    _player.anchorPoint = CGPointMake(0, 0.5);
     _player.xScale = _player.xScale * -1;
     [self addChild:_player];
     [_player runAction:[SKAction repeatActionForever:_mrg] withKey:@"idleAni"];
@@ -87,6 +88,7 @@
 
 - (void)initAnimations
 {
+    //enemy slash animation
     NSMutableArray *enemySlash = [NSMutableArray array];
     
     for(int i = 0; i < 11; i++){
@@ -97,12 +99,19 @@
     
     _eslash = [SKAction animateWithTextures:enemySlash timePerFrame:0.1 resize:YES restore:YES];
 
-    SKAction *move2p = [SKAction moveToX:300 duration:0.6];
+    SKAction *move2p = [SKAction moveToX:225 duration:0.6];
     NSLog(@"playerpositionx: %f", _player.position.x);
 
     _eslash = [SKAction group:@[_eslash, move2p]];
-
     
+    //enemy damaged animation
+    SKTexture *e0 = [SKTexture textureWithImageNamed:@"ogre_damaged_0"];
+    SKTexture *e1 = [SKTexture textureWithImageNamed:@"ogre_damaged_1"];
+    NSArray *enemyDamaged = @[e0, e1];
+    
+    _edamage = [SKAction animateWithTextures:enemyDamaged timePerFrame:0.2 resize:YES restore:NO];
+
+    //player spell animation
     NSMutableArray *playerSpell = [NSMutableArray array];
     
     for(int i = 0; i < 7; i++){
@@ -112,9 +121,17 @@
     }
     
     _pspell = [SKAction animateWithTextures:playerSpell timePerFrame:0.1 resize:YES restore:NO];
+    
+    //player damaged animation
+    SKTexture *t0 = [SKTexture textureWithImageNamed:@"mage_damaged_0"];
+    SKTexture *t1 = [SKTexture textureWithImageNamed:@"mage_damaged_1"];
+    NSArray *playerDamaged = @[t0, t1];
+    
+    _pdamage = [SKAction animateWithTextures:playerDamaged timePerFrame:0.15 resize:YES restore:NO];
+   
 }
 
-- (void)animateSkill:(NSString *)skillName
+- (void)animateSkill:(NSString *)skillName withId:(int)entityid
 {
     if([skillName  isEqual: @"slash"]){
         NSLog(@"animateSkill slash");
@@ -125,10 +142,17 @@
         _enemy.zPosition = 2;
         [_enemy runAction:seq withKey:@"slashAni"];
         
+        SKAction *wait = [SKAction waitForDuration:0.3];
+        SKAction *seqp = [SKAction sequence:@[wait, _pdamage, [SKAction repeatActionForever:_mrg]]];
+        [_player runAction:seqp];
+        
     } else if([skillName isEqualToString:@"magicblast"]){
         [_player removeActionForKey:@"idleAni"];
         SKAction *seq = [SKAction sequence:@[_pspell, [SKAction repeatActionForever:_mrg]]];
         [_player runAction:seq withKey:@"magicAni"];
+        
+        SKAction *seqe = [SKAction sequence:@[[SKAction waitForDuration:0.3], _edamage, [SKAction repeatActionForever:_obg]]];
+        [_enemy runAction:seqe];
     }
 }
 @end
