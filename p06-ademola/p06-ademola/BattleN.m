@@ -64,6 +64,7 @@
     
     _enemy = [SKSpriteNode spriteNodeWithTexture:ob1];
     _enemy.position = CGPointMake(100, 250);
+    _enemy.anchorPoint = CGPointMake(1, 0.5);
     _enemy.xScale = _enemy.xScale * -1;
     [self addChild:_enemy];
     [_enemy runAction:[SKAction repeatActionForever:_obg] withKey:@"idleAni"];
@@ -75,13 +76,13 @@
     SKTexture *mr0 = [_ps textureNamed:@"mage_rest_0"];
     SKTexture *mr1 = [_ps textureNamed:@"mage_rest_1"];
     NSArray *mr = @[mr0, mr1];
-    SKAction *mrg = [SKAction animateWithTextures:mr timePerFrame:0.7 resize:YES restore:YES];
+    _mrg = [SKAction animateWithTextures:mr timePerFrame:0.7 resize:YES restore:YES];
     
     _player = [SKSpriteNode spriteNodeWithTexture:mr1];
     _player.position = CGPointMake(300, 250);
     _player.xScale = _player.xScale * -1;
     [self addChild:_player];
-    [_player runAction:[SKAction repeatActionForever:mrg] withKey:@"idleAni"];
+    [_player runAction:[SKAction repeatActionForever:_mrg] withKey:@"idleAni"];
 }
 
 - (void)initAnimations
@@ -95,6 +96,22 @@
     }
     
     _eslash = [SKAction animateWithTextures:enemySlash timePerFrame:0.1 resize:YES restore:YES];
+
+    SKAction *move2p = [SKAction moveToX:300 duration:0.6];
+    NSLog(@"playerpositionx: %f", _player.position.x);
+
+    _eslash = [SKAction group:@[_eslash, move2p]];
+
+    
+    NSMutableArray *playerSpell = [NSMutableArray array];
+    
+    for(int i = 0; i < 7; i++){
+        NSString *textureName = [NSString stringWithFormat:@"mage_spell_%d", i];
+        SKTexture *texture = [SKTexture textureWithImageNamed:textureName];
+        [playerSpell addObject:texture];
+    }
+    
+    _pspell = [SKAction animateWithTextures:playerSpell timePerFrame:0.1 resize:YES restore:NO];
 }
 
 - (void)animateSkill:(NSString *)skillName
@@ -102,10 +119,16 @@
     if([skillName  isEqual: @"slash"]){
         NSLog(@"animateSkill slash");
         [_enemy removeActionForKey:@"idleAni"];
-        SKAction *seq = [SKAction sequence:@[_eslash, [SKAction repeatActionForever:_obg]]];
+        CGFloat oldex = _enemy.position.x;
+        SKAction *moveback = [SKAction moveToX:oldex duration:0.6];
+        SKAction *seq = [SKAction sequence:@[_eslash, moveback, [SKAction repeatActionForever:_obg]]];
+        _enemy.zPosition = 2;
         [_enemy runAction:seq withKey:@"slashAni"];
-        //[_enemy runAction:_eslash withKey:@"slashAni"];
-        //[_enemy runAction:[SKAction repeatActionForever:_obg] withKey:@"idleAni"];
+        
+    } else if([skillName isEqualToString:@"magicblast"]){
+        [_player removeActionForKey:@"idleAni"];
+        SKAction *seq = [SKAction sequence:@[_pspell, [SKAction repeatActionForever:_mrg]]];
+        [_player runAction:seq withKey:@"magicAni"];
     }
 }
 @end

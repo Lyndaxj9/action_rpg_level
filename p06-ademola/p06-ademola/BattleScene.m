@@ -63,6 +63,7 @@
     
     if([node.name isEqualToString:@"spellbutton00"]) {
         [_testC selectAttack:0];
+        [_battleN animateSkill:[_testP usedSkill]];
     } else if([node.name isEqualToString:@"spellbutton01"]) {
         [_testC selectAttack:1];
     } else if([node.name isEqualToString:@"spellbutton02"]) {

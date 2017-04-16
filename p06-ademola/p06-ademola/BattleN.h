@@ -17,8 +17,9 @@
 
 @property (nonatomic) SKTextureAtlas *es;
 @property (nonatomic) SKTextureAtlas *ps;
-@property (nonatomic) SKAction *obg;
+@property (nonatomic) SKAction *obg, *mrg;
 @property (nonatomic) SKAction *eslash;
+@property (nonatomic) SKAction *pspell;
 
 - (id)initWithSize:(CGSize)frame;
 - (void)animateSkill:(NSString *)skillName;
