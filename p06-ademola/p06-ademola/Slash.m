@@ -16,7 +16,7 @@
     self = [super init];
     
     if(self){
-        _minDamage = 10;
+        _minDamage = 20; //prev: 10
         _cooldown = 1;
         attackName = @"slash";
     }

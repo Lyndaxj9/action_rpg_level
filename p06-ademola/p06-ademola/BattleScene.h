@@ -21,6 +21,7 @@
 @property (nonatomic) HealthBar *healthBar, *healthBar1;
 
 @property (nonatomic) Combat *testC;
+@property (nonatomic) BOOL pDeathAniSet;
 
 @property (nonatomic) Entity *testE, *testP;
 @property (nonatomic) MagicBlast *mb;

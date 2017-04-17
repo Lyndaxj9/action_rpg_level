@@ -11,7 +11,7 @@
 @implementation Entity
 
 @synthesize timePassed, attackSpeed;
-@synthesize usedSkill;
+@synthesize usedSkill, death;
 
 - (instancetype)init
 {
@@ -21,8 +21,9 @@
         _defense = .1;
         _health = [[Health alloc] init];
         timePassed = 0;
-        attackSpeed = 2;
+        attackSpeed = 1;
         usedSkill = @"";
+        death = FALSE;
     }
     
     return self;

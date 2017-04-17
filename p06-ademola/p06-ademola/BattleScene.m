@@ -22,7 +22,7 @@
     _battleN = [[BattleN alloc]initWithSize:self.size];
     [self addChild:_battleN];
     
-    //_testC = [[Combat alloc]init];
+    _pDeathAniSet = FALSE;
     
     _testE = [[Entity alloc]init];
     _testP = [[Entity alloc]init];
@@ -61,18 +61,25 @@
     CGPoint location = [touch locationInNode:self];
     SKNode *node = [self nodeAtPoint:location];
     
-    if([node.name isEqualToString:@"spellbutton00"]) {
-        [_testC selectAttack:0];
-    } else if([node.name isEqualToString:@"spellbutton01"]) {
-        [_testC selectAttack:1];
-    } else if([node.name isEqualToString:@"spellbutton02"]) {
-        [_testC selectAttack:2];
-    } else if([node.name isEqualToString:@"spellbutton03"]) {
-        [_testC selectAttack:3];
-    } else if([node.name isEqualToString:@"spellbutton04"]) {
-        [_testC selectAttack:4];
+    if(![_testC getGameOver]){
+        if([node.name isEqualToString:@"spellbutton00"]) {
+            [_testC selectAttack:0];
+        } else if([node.name isEqualToString:@"spellbutton01"]) {
+            [_testC selectAttack:1];
+        } else if([node.name isEqualToString:@"spellbutton02"]) {
+            [_testC selectAttack:2];
+        } else if([node.name isEqualToString:@"spellbutton03"]) {
+            [_testC selectAttack:3];
+        } else if([node.name isEqualToString:@"spellbutton04"]) {
+            [_testC selectAttack:4];
+        }
+        [_battleN animateSkill:[_testP usedSkill] withId:1];
+        [_testP setUsedSkill:@""];
     }
-    [_battleN animateSkill:[_testP usedSkill] withId:1];
+    if([_testC getGameOver] && [_testE death]){
+        [_battleN deathAnimationFor:0];
+    }
+
 }
 
 - (void)update:(CFTimeInterval)currentTime
@@ -84,7 +91,11 @@
     [_testE setUsedSkill:@""];
     [self.healthBar updateWithHealth:self.health];
     [self.healthBar1 updateWithHealth:self.health1];
-    
+    if([_testC getGameOver] && [_testP death] && !_pDeathAniSet){
+        [_battleN deathAnimationFor:1];
+        _pDeathAniSet = TRUE;
+    }
+
 }
 
 @end

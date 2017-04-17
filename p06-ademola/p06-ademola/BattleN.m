@@ -60,7 +60,7 @@
     SKTexture *ob0 = [_es textureNamed:@"ogre_breath_0"];
     SKTexture *ob1 = [_es textureNamed:@"ogre_breath_1"];
     NSArray *ob = @[ob0, ob1];
-    _obg = [SKAction animateWithTextures:ob timePerFrame:0.7 resize:YES restore:YES];
+    _obg = [SKAction animateWithTextures:ob timePerFrame:0.5 resize:YES restore:YES];
     
     _enemy = [SKSpriteNode spriteNodeWithTexture:ob1];
     _enemy.position = CGPointMake(50, 250);
@@ -76,7 +76,7 @@
     SKTexture *mr0 = [_ps textureNamed:@"mage_rest_0"];
     SKTexture *mr1 = [_ps textureNamed:@"mage_rest_1"];
     NSArray *mr = @[mr0, mr1];
-    _mrg = [SKAction animateWithTextures:mr timePerFrame:0.7 resize:YES restore:YES];
+    _mrg = [SKAction animateWithTextures:mr timePerFrame:0.5 resize:YES restore:YES];
     
     _player = [SKSpriteNode spriteNodeWithTexture:mr1];
     _player.position = CGPointMake(300, 250);
@@ -117,7 +117,14 @@
     NSArray *enemyHeal = @[r0, r1];
     
     _eheal = [SKAction animateWithTextures:enemyHeal timePerFrame:0.15 resize:YES restore:NO];
+    
+    //enemy defeat animation
+    SKTexture *d0 = [SKTexture textureWithImageNamed:@"ogre_defeat_0"];
+    SKTexture *d1 = [SKTexture textureWithImageNamed:@"ogre_defeat_1"];
+    NSArray *enemyDefeat = @[d0, d1];
 
+    _edefeat = [SKAction animateWithTextures:enemyDefeat timePerFrame:0.7 resize:YES restore:NO];
+    
     //player spell animation
     NSMutableArray *playerSpell = [NSMutableArray array];
     
@@ -144,6 +151,19 @@
     NSArray *playerHeal = @[h0, h1, h2];
     
     _pheal = [SKAction animateWithTextures:playerHeal timePerFrame:0.2 resize:YES restore:NO];
+    
+    //player death animation
+    NSMutableArray *playerDefeat = [NSMutableArray array];
+    
+    [playerDefeat addObject:t0];
+    [playerDefeat addObject:t1];
+    for(int i = 2; i < 10; i++){
+        NSString *textureName = [NSString stringWithFormat:@"mage_defeat_%d", i];
+        SKTexture *texture = [SKTexture textureWithImageNamed:textureName];
+        [playerDefeat addObject:texture];
+    }
+    
+    _pdefeat = [SKAction animateWithTextures:playerDefeat timePerFrame:0.2 resize:YES restore:NO];
    
 }
 
@@ -177,6 +197,19 @@
         [_enemy removeActionForKey:@"idleAni"];
         SKAction *seq = [SKAction sequence:@[[SKAction repeatAction:_eheal count:2], [SKAction repeatActionForever:_obg]]];
         [_enemy runAction:seq withKey:@"heal"];
+    }
+}
+
+- (void)deathAnimationFor:(int)entityid
+{
+    if(entityid == 0){
+        [_enemy removeActionForKey:@"idleAni"];
+        SKAction *seq = [SKAction repeatActionForever:_edefeat];
+        [_enemy runAction:seq withKey:@"defeat"];
+    } else if(entityid == 1){
+        [_player removeActionForKey:@"idleAni"];
+        [_player runAction:_pdefeat withKey:@"defeat"];
+        [_player removeActionForKey:@"idleAni"];
     }
 }
 @end

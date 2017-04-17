@@ -30,12 +30,15 @@
 
 @property (nonatomic) double attackSpeed;
 @property (nonatomic) double timePassed;
-@property (nonatomic) BOOL gameOver, enemyDeath, playerDeath;
+@property (nonatomic) BOOL gameOver;
 
 - (instancetype)init;
 - (instancetype)initWithPlayer:(Entity *)a_player andEnemy:(Entity *)a_enemy;
 - (void)update:(NSTimeInterval) deltaTime;
 - (void)enemyAI;
 - (void)selectAttack:(int)attackNum;
+- (void)checkHealth;
+- (void)gameEnd;
+- (BOOL)getGameOver;
 //some function to handle player attacks
 @end

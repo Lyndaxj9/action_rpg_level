@@ -19,6 +19,7 @@
 @property (nonatomic) float defense;
 @property (nonatomic) double attackSpeed, timePassed;
 @property (nonatomic) NSString *usedSkill;
+@property (nonatomic) BOOL death;
 
 - (instancetype) init;
 - (void)takeDamage:(float)damageAmnt;

@@ -38,7 +38,6 @@
     
     if(self){
         _gameOver = FALSE;
-        _enemyDeath = _playerDeath = FALSE;
         
         _player = a_player;
         _enemy = a_enemy;
@@ -100,27 +99,34 @@
 - (void)checkHealth
 {
     if([_eH getCurrentHealth] <= 0){
-        _gameOver = _enemyDeath = TRUE;
+        _gameOver = TRUE;
+        [_enemy setDeath:TRUE];
     } else if([_pH getCurrentHealth] <= 0){
         NSLog(@"player current health: %f", [_pH getCurrentHealth]);
-        _gameOver = _playerDeath = TRUE;
+        _gameOver = TRUE;
+        [_player setDeath:TRUE];
     }
 }
 
 - (void)gameEnd
 {
-    if(_enemyDeath){
+    if([_enemy death]){
         NSLog(@"Player Wins");
-    } else if(_playerDeath){
+    } else if([_player death]){
         NSLog(@"Player You Lose");
     }
+}
+
+- (BOOL)getGameOver
+{
+    return _gameOver;
 }
 
 - (void)update:(NSTimeInterval)deltaTime
 {
     _enemy.timePassed += deltaTime;
     //NSLog(@"timePassed: %f", _timePassed);
-    if(_enemy.timePassed > _enemy.attackSpeed){
+    if(_enemy.timePassed > _enemy.attackSpeed && !_gameOver){
         //if(_timePassed > _attackSpeed){
         [self enemyAI];
         _enemy.timePassed = 0;
