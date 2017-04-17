@@ -110,6 +110,13 @@
     NSArray *enemyDamaged = @[e0, e1];
     
     _edamage = [SKAction animateWithTextures:enemyDamaged timePerFrame:0.2 resize:YES restore:NO];
+    
+    //enemy heal animation
+    SKTexture *r0 = [SKTexture textureWithImageNamed:@"ogre_heal_0"];
+    SKTexture *r1 = [SKTexture textureWithImageNamed:@"ogre_heal_1"];
+    NSArray *enemyHeal = @[r0, r1];
+    
+    _eheal = [SKAction animateWithTextures:enemyHeal timePerFrame:0.15 resize:YES restore:NO];
 
     //player spell animation
     NSMutableArray *playerSpell = [NSMutableArray array];
@@ -128,6 +135,15 @@
     NSArray *playerDamaged = @[t0, t1];
     
     _pdamage = [SKAction animateWithTextures:playerDamaged timePerFrame:0.15 resize:YES restore:NO];
+    
+    //player heal animation
+    SKTexture *h0, *h1, *h2;
+    h0 = [SKTexture textureWithImageNamed:@"mage_heal_0"];
+    h1 = [SKTexture textureWithImageNamed:@"mage_heal_1"];
+    h2 = [SKTexture textureWithImageNamed:@"mage_heal_2"];
+    NSArray *playerHeal = @[h0, h1, h2];
+    
+    _pheal = [SKAction animateWithTextures:playerHeal timePerFrame:0.2 resize:YES restore:NO];
    
 }
 
@@ -146,13 +162,21 @@
         SKAction *seqp = [SKAction sequence:@[wait, _pdamage, [SKAction repeatActionForever:_mrg]]];
         [_player runAction:seqp];
         
-    } else if([skillName isEqualToString:@"magicblast"]){
+    } else if([skillName isEqualToString:@"magicblast"] || [skillName isEqualToString:@"fireball"] || [skillName isEqualToString:@"frostbolt"] || [skillName isEqualToString:@"lightning"]){
         [_player removeActionForKey:@"idleAni"];
         SKAction *seq = [SKAction sequence:@[_pspell, [SKAction repeatActionForever:_mrg]]];
         [_player runAction:seq withKey:@"magicAni"];
         
         SKAction *seqe = [SKAction sequence:@[[SKAction waitForDuration:0.3], _edamage, [SKAction repeatActionForever:_obg]]];
         [_enemy runAction:seqe];
+    } else if([skillName isEqualToString:@"heal"] && entityid == 1) {
+        [_player removeActionForKey:@"idleAni"];
+        SKAction *seq = [SKAction sequence:@[_pheal, [SKAction repeatActionForever:_mrg]]];
+        [_player runAction:seq withKey:@"heal"];
+    } else if([skillName isEqualToString:@"heal"] && entityid == 0) {
+        [_enemy removeActionForKey:@"idleAni"];
+        SKAction *seq = [SKAction sequence:@[[SKAction repeatAction:_eheal count:2], [SKAction repeatActionForever:_obg]]];
+        [_enemy runAction:seq withKey:@"heal"];
     }
 }
 @end

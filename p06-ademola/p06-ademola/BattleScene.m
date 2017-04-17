@@ -63,16 +63,16 @@
     
     if([node.name isEqualToString:@"spellbutton00"]) {
         [_testC selectAttack:0];
-        [_battleN animateSkill:[_testP usedSkill] withId:1];
     } else if([node.name isEqualToString:@"spellbutton01"]) {
         [_testC selectAttack:1];
     } else if([node.name isEqualToString:@"spellbutton02"]) {
-        
+        [_testC selectAttack:2];
     } else if([node.name isEqualToString:@"spellbutton03"]) {
-        
+        [_testC selectAttack:3];
     } else if([node.name isEqualToString:@"spellbutton04"]) {
         [_testC selectAttack:4];
     }
+    [_battleN animateSkill:[_testP usedSkill] withId:1];
 }
 
 - (void)update:(CFTimeInterval)currentTime
