@@ -41,14 +41,14 @@
 
 - (void)initHealthBar
 {
-    float width = self.size.width * 0.7;
-    float height = self.size.height * 0.05;
+    float width = self.size.width * 0.4;
+    float height = 25;
     self.healthBar = [[HealthBar alloc]initWithWidth:width andHeight:height];
-    self.healthBar.position = CGPointMake(self.size.width/2.0, self.size.height - self.healthBar.barHeight*3);
+    self.healthBar.position = CGPointMake(width/2+25, self.size.height - self.healthBar.barHeight);
     [self addChild:self.healthBar];
     
     self.healthBar1 = [[HealthBar alloc] initWithWidth:width andHeight:height];
-    self.healthBar1.position = CGPointMake(self.size.width/2.0, self.size.height - self.healthBar1.barHeight);
+    self.healthBar1.position = CGPointMake(self.size.width-(width/2+25), self.size.height - self.healthBar1.barHeight);
     [self addChild:self.healthBar1];
 }
 

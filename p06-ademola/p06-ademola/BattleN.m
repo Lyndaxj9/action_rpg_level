@@ -18,6 +18,8 @@
         _width = frame.width;
         _height = frame.height;
         
+        NSLog(@"width: %f | height: %f", _width, _height);
+        
         //place hotbar that contains the spells
         _hotbar = [SKShapeNode shapeNodeWithRect:CGRectMake(0, 0, _width, _height/6)];
         _hotbar.lineWidth = 2.0;
@@ -107,7 +109,6 @@
     _eslash = [SKAction animateWithTextures:enemySlash timePerFrame:0.1 resize:YES restore:YES];
 
     SKAction *move2p = [SKAction moveToX:225 duration:0.6];
-    NSLog(@"playerpositionx: %f", _player.position.x);
 
     _eslash = [SKAction group:@[_eslash, move2p]];
     
@@ -209,6 +210,7 @@
 
 - (void)deathAnimationFor:(int)entityid
 {
+    _entityDefeated = entityid;
     if(entityid == 0){
         [_enemy removeActionForKey:@"idleAni"];
         SKAction *seq = [SKAction repeatActionForever:_edefeat];
@@ -218,7 +220,22 @@
         //[_player removeActionForKey:@"i"];
         [_player runAction:_pdefeat withKey:@"defeat"];
         _player.texture = [SKTexture textureWithImageNamed:@"mage_defeat_9"];
-        //[_player removeActionForKey:@"idleAni"];
+    }
+    [self gameOverMessage];
+}
+
+- (void)gameOverMessage
+{
+    if(_entityDefeated == 0){
+        SKSpriteNode *yw = [SKSpriteNode spriteNodeWithImageNamed:@"YOUWIN"];
+        yw.position = CGPointMake(_width/2, (_height/4)*3);
+        yw.zPosition = 5;
+        [self addChild:yw];
+    } else if(_entityDefeated == 1){
+        SKSpriteNode *yl = [SKSpriteNode spriteNodeWithImageNamed:@"YOULOSE"];
+        yl.position = CGPointMake(_width/2, (_height/4)*3);
+        yl.zPosition = 5;
+        [self addChild:yl];
     }
 }
 @end

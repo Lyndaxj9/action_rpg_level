@@ -21,6 +21,8 @@
 @property (nonatomic) SKAction *eslash, *edamage, *eheal, *edefeat;
 @property (nonatomic) SKAction *pspell, *pdamage, *pheal, *pdefeat;
 
+@property (nonatomic) int entityDefeated;
+
 - (id)initWithSize:(CGSize)frame;
 //- (void)animateSkill:(NSString *)skillName;
 - (void)animateSkill:(NSString *)skillName withId:(int)entityid;

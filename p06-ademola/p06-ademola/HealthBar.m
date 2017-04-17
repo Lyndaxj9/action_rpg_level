@@ -21,7 +21,7 @@
         CGSize size = CGSizeMake(width, height);
         
         self.outline = [SKShapeNode shapeNodeWithRectOfSize:size];
-        self.outline.lineWidth = height / 7.0;
+        self.outline.lineWidth = height / 8.0;
         self.outline.fillColor = [UIColor clearColor];
         self.outline.strokeColor = [UIColor blackColor];
         self.outline.zPosition = 2;
