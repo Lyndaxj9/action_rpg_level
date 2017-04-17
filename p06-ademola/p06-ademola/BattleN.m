@@ -25,12 +25,19 @@
         _hotbar.strokeColor = [SKColor blackColor];
         [self addChild:_hotbar];
         
+        //initialized SKTextureAtlas'
         _es = [SKTextureAtlas atlasNamed:@"ogresprites"];
         _ps = [SKTextureAtlas atlasNamed:@"magesprites"];
         
         [self initAnimations];
         [self createEnemy];
         [self createPlayer];
+        
+        //initialize background
+        SKSpriteNode *bg = [SKSpriteNode spriteNodeWithImageNamed:@"cave_pixel_battle"];
+        bg.position = CGPointMake(_width/2+30, 275);
+        bg.zPosition = -2;
+        [self addChild:bg];
         
         
         //spells
@@ -180,19 +187,19 @@
         
         SKAction *wait = [SKAction waitForDuration:0.3];
         SKAction *seqp = [SKAction sequence:@[wait, _pdamage, [SKAction repeatActionForever:_mrg]]];
-        [_player runAction:seqp];
+        [_player runAction:seqp withKey:@"idleAni"];
         
     } else if([skillName isEqualToString:@"magicblast"] || [skillName isEqualToString:@"fireball"] || [skillName isEqualToString:@"frostbolt"] || [skillName isEqualToString:@"lightning"]){
         [_player removeActionForKey:@"idleAni"];
         SKAction *seq = [SKAction sequence:@[_pspell, [SKAction repeatActionForever:_mrg]]];
-        [_player runAction:seq withKey:@"magicAni"];
+        [_player runAction:seq withKey:@"idleAni"];
         
         SKAction *seqe = [SKAction sequence:@[[SKAction waitForDuration:0.3], _edamage, [SKAction repeatActionForever:_obg]]];
         [_enemy runAction:seqe];
     } else if([skillName isEqualToString:@"heal"] && entityid == 1) {
         [_player removeActionForKey:@"idleAni"];
         SKAction *seq = [SKAction sequence:@[_pheal, [SKAction repeatActionForever:_mrg]]];
-        [_player runAction:seq withKey:@"heal"];
+        [_player runAction:seq withKey:@"idleAni"];
     } else if([skillName isEqualToString:@"heal"] && entityid == 0) {
         [_enemy removeActionForKey:@"idleAni"];
         SKAction *seq = [SKAction sequence:@[[SKAction repeatAction:_eheal count:2], [SKAction repeatActionForever:_obg]]];
@@ -208,8 +215,10 @@
         [_enemy runAction:seq withKey:@"defeat"];
     } else if(entityid == 1){
         [_player removeActionForKey:@"idleAni"];
+        //[_player removeActionForKey:@"i"];
         [_player runAction:_pdefeat withKey:@"defeat"];
-        [_player removeActionForKey:@"idleAni"];
+        _player.texture = [SKTexture textureWithImageNamed:@"mage_defeat_9"];
+        //[_player removeActionForKey:@"idleAni"];
     }
 }
 @end
