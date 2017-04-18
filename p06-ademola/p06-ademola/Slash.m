@@ -17,7 +17,7 @@
     self = [super init];
     
     if(self){
-        _minDamage = 20; //prev: 10
+        _minDamage = 30; //prev: 10
         cooldown = .5;
         timePassed = cooldown;
         attackName = @"slash";

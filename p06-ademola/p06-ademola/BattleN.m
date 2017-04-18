@@ -23,7 +23,7 @@
         //place hotbar that contains the spells
         _hotbar = [SKShapeNode shapeNodeWithRect:CGRectMake(0, 0, _width, _height/6)];
         _hotbar.lineWidth = 2.0;
-        _hotbar.fillColor = [SKColor grayColor];
+        _hotbar.fillColor = [SKColor darkGrayColor];
         _hotbar.strokeColor = [SKColor blackColor];
         [self addChild:_hotbar];
         

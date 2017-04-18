@@ -60,7 +60,7 @@
         _slash = [[Slash alloc]init];
         [_skills addObject:_slash];
         _healE = [[Heal alloc]init];
-        [_healE setCooldown:.3];
+        [_healE setCooldown:.25];
         [_skills addObject:_healE];
         
         _skillStatus = [NSMutableArray arrayWithCapacity:5];
