@@ -10,6 +10,7 @@
 
 @implementation Lightning
 @synthesize attackName;
+@synthesize cooldown, timePassed;
 
 - (id)init
 {
@@ -17,8 +18,8 @@
     
     if(self){
         _minDamage = 15;
-        _cooldown = 2.75;
-        _timePassed = _cooldown;
+        cooldown = 1.75;
+        timePassed = cooldown;
         attackName = @"lightning";
     }
     
@@ -33,7 +34,7 @@
 
 - (BOOL)skillReady
 {
-    return (_timePassed >= _cooldown);
+    return (timePassed >= cooldown);
 }
 
 @end

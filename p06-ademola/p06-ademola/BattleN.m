@@ -23,7 +23,7 @@
         //place hotbar that contains the spells
         _hotbar = [SKShapeNode shapeNodeWithRect:CGRectMake(0, 0, _width, _height/6)];
         _hotbar.lineWidth = 2.0;
-        _hotbar.fillColor = [SKColor blueColor];
+        _hotbar.fillColor = [SKColor grayColor];
         _hotbar.strokeColor = [SKColor blackColor];
         [self addChild:_hotbar];
         
@@ -43,11 +43,22 @@
         
         
         //spells
+        _cooldown = [NSMutableArray array];
+        CGSize spellSize = CGSizeMake((_width-8*6)/5, _height/6-20);
+        
         for(int i = 0; i < 5; i++){
-            SKSpriteNode *s = [SKSpriteNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake((_width-8*6)/5, _height/6-20)];
-            s.position = CGPointMake(s.size.width/2+8*(i+1)+s.size.width*i, s.size.height/2+10);
+            SKSpriteNode *s = [SKSpriteNode spriteNodeWithColor:[UIColor greenColor] size:spellSize];
+            CGPoint spellPos = CGPointMake(s.size.width/2+8*(i+1)+s.size.width*i, s.size.height/2+10);
+            s.position = spellPos;
             s.name = [NSString stringWithFormat:@"spellbutton0%d",i];
             [self addChild:s];
+            
+            SKSpriteNode *dim = [SKSpriteNode spriteNodeWithColor:[UIColor blackColor] size:spellSize];
+            dim.alpha = 0.75;
+            dim.position = spellPos;
+            dim.zPosition = 7;
+            dim.name = [NSString stringWithFormat:@"dimbutton0%d",i];
+            [_cooldown addObject:dim];
             
             SKLabelNode *l = [SKLabelNode labelNodeWithFontNamed:@"Cochin"];
             l.fontSize = 30;
@@ -133,6 +144,13 @@
 
     _edefeat = [SKAction animateWithTextures:enemyDefeat timePerFrame:0.7 resize:YES restore:NO];
     
+    //enemy victory animation
+    SKTexture *v0 = [SKTexture textureWithImageNamed:@"ogre_win_0"];
+    SKTexture *v1 = [SKTexture textureWithImageNamed:@"ogre_win_1"];
+    NSArray *enemyVictory = @[v0, v1];
+    
+    _evictory = [SKAction animateWithTextures:enemyVictory timePerFrame:0.2 resize:YES restore:NO];
+    
     //player spell animation
     NSMutableArray *playerSpell = [NSMutableArray array];
     
@@ -149,7 +167,7 @@
     SKTexture *t1 = [SKTexture textureWithImageNamed:@"mage_damaged_1"];
     NSArray *playerDamaged = @[t0, t1];
     
-    _pdamage = [SKAction animateWithTextures:playerDamaged timePerFrame:0.15 resize:YES restore:NO];
+    _pdamage = [SKAction animateWithTextures:playerDamaged timePerFrame:0.2 resize:YES restore:NO];
     
     //player heal animation
     SKTexture *h0, *h1, *h2;
@@ -172,6 +190,11 @@
     }
     
     _pdefeat = [SKAction animateWithTextures:playerDefeat timePerFrame:0.2 resize:YES restore:NO];
+    
+    //player victory animation
+    NSArray *playerVictory = @[[playerSpell objectAtIndex:0], [playerSpell objectAtIndex:1], [playerSpell objectAtIndex:2], [playerSpell objectAtIndex:1]];
+   
+    _pvictory = [SKAction animateWithTextures:playerVictory timePerFrame:0.2 resize:YES restore:NO];
    
 }
 
@@ -215,11 +238,17 @@
         [_enemy removeActionForKey:@"idleAni"];
         SKAction *seq = [SKAction repeatActionForever:_edefeat];
         [_enemy runAction:seq withKey:@"defeat"];
+        
+        [_player removeActionForKey:@"idleAni"];
+        [_player runAction:[SKAction repeatActionForever:_pvictory] withKey:@"victory"];
     } else if(entityid == 1){
         [_player removeActionForKey:@"idleAni"];
         //[_player removeActionForKey:@"i"];
         [_player runAction:_pdefeat withKey:@"defeat"];
         _player.texture = [SKTexture textureWithImageNamed:@"mage_defeat_9"];
+        
+        [_enemy removeActionForKey:@"idleAni"];
+        [_enemy runAction:[SKAction repeatActionForever:_evictory] withKey:@"victory"];
     }
     [self gameOverMessage];
 }
@@ -236,6 +265,17 @@
         yl.position = CGPointMake(_width/2, (_height/4)*3);
         yl.zPosition = 5;
         [self addChild:yl];
+    }
+}
+
+- (void)updateSkillCooldown:(NSMutableArray *)sS
+{
+    for(int i = 0; i < 5; i++){
+        if([[sS objectAtIndex:i] intValue] == 1 && [[_cooldown objectAtIndex:i]parent] != nil){
+            [[_cooldown objectAtIndex:i] removeFromParent];
+        } else if ([[sS objectAtIndex:i] intValue] == 0 && [[_cooldown objectAtIndex:i]parent] == nil){
+            [self addChild:[_cooldown objectAtIndex:i]];
+        }
     }
 }
 @end

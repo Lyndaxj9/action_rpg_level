@@ -23,10 +23,10 @@
         
         //Game Title
         SKLabelNode *title = [SKLabelNode labelNodeWithFontNamed:@"Baskerville"];
-        title.text = @"THE GAME";
+        title.text = @"CYCLOPS HUNT";
         title.name = @"title";
         //multilineLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeCenter;
-        title.fontSize = 60;
+        title.fontSize = 45;
         title.fontColor = [SKColor whiteColor];
         title.position = CGPointMake(self.size.width/2, self.size.height/2);
         title.zPosition = 2;

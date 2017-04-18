@@ -45,14 +45,30 @@
         _eH = [_enemy getHealth];
         _pH = [_player getHealth];
         
-        _mb = [[MagicBlast alloc]init];
-        _fb = [[FireBall alloc]init];
-        _ib = [[FrostBolt alloc]init];
-        _lg = [[Lightning alloc]init];
-        _heal = [[Heal alloc]init];
-        _slash = [[Slash alloc]init];
+        _skills = [NSMutableArray array];
         
-        _attackSpeed = 1;
+        _mb = [[MagicBlast alloc]init];
+        [_skills addObject:_mb];
+        _fb = [[FireBall alloc]init];
+        [_skills addObject:_fb];
+        _ib = [[FrostBolt alloc]init];
+        [_skills addObject:_ib];
+        _lg = [[Lightning alloc]init];
+        [_skills addObject:_lg];
+        _heal = [[Heal alloc]init];
+        [_skills addObject:_heal];
+        _slash = [[Slash alloc]init];
+        [_skills addObject:_slash];
+        _healE = [[Heal alloc]init];
+        [_healE setCooldown:.3];
+        [_skills addObject:_healE];
+        
+        _skillStatus = [NSMutableArray arrayWithCapacity:5];
+        for(int i = 0; i < 5; i++){
+            [_skillStatus addObject:[NSNumber numberWithBool:TRUE]];
+        }
+        
+        _attackSpeed = 0;
         _timePassed = 0;
     }
     
@@ -66,7 +82,7 @@
         [_enemy useSKill:_slash On:_player];
     } else {
         NSLog(@"before heal: %f", [_eH getCurrentHealth]);
-        [_enemy useSKill:_heal On:_enemy];
+        [_enemy useSKill:_healE On:_enemy];
         NSLog(@"after heal: %f", [_eH getCurrentHealth]);
     }
     [self checkHealth];
@@ -79,17 +95,12 @@
 //skills in different parts of the array
 - (void)selectAttack:(int)attackNum
 {
-    if(attackNum == 0){
-        [_player useSKill:_mb On:_enemy];
-    } else if(attackNum == 1) {
-        [_player useSKill:_fb On:_enemy];
-    } else if(attackNum == 2){
-        [_player useSKill:_ib On:_enemy];
-    } else if(attackNum == 3){
-        [_player useSKill:_lg On:_enemy];
+    if(attackNum >= 0 && attackNum <= 3){
+        [_player useSKill:[_skills objectAtIndex:attackNum] On:_enemy];
     } else if(attackNum == 4) {
-        [_player useSKill:_heal On:_player];
+        [_player useSKill:[_skills objectAtIndex:attackNum] On:_player];
     }
+
     [self checkHealth];
     if(_gameOver){
         [self gameEnd];
@@ -122,15 +133,22 @@
     return _gameOver;
 }
 
+- (NSMutableArray *)getSkillStatus
+{
+    return _skillStatus;
+}
+
 - (void)update:(NSTimeInterval)deltaTime
 {
     _enemy.timePassed += deltaTime;
-    _mb.timePassed += deltaTime;
-    _fb.timePassed += deltaTime;
-    _ib.timePassed += deltaTime;
-    _lg.timePassed += deltaTime;
-    _heal.timePassed += deltaTime;
-    _slash.timePassed += deltaTime;
+
+    for(int i = 0; i < 7; i++){
+        [[_skills objectAtIndex:i] setTimePassed:([[_skills objectAtIndex:i] timePassed] + deltaTime)];
+        if(i < 5){
+        [_skillStatus replaceObjectAtIndex:i withObject:[NSNumber numberWithBool:[[_skills objectAtIndex:i] skillReady]]];
+        }
+    }
+    
     //NSLog(@"timePassed: %f", _mb.timePassed);
     //NSLog(@"timePassed: %f", _timePassed);
     if(_enemy.timePassed > _enemy.attackSpeed && !_gameOver){

@@ -20,7 +20,7 @@
         _height = frame.height;
         
         //init NPC image
-        _npc = [SKSpriteNode spriteNodeWithImageNamed:@"guyanime"];
+        _npc = [SKSpriteNode spriteNodeWithImageNamed:@"generic villager"];
         _npc.position = CGPointMake(200, 300);
         _npc.zPosition = -2;
         [self addChild:_npc];
@@ -54,7 +54,7 @@
 //https://xcodenoobies.blogspot.com/2014/12/multiline-sklabelnode-hell-yes-please-xd.html
 - (void)createLabels
 {
-    NSString *dialouge = @"Ah!... Hello you scared me and to repay me can you help with something?";
+    NSString *dialouge = @"Wow you seem strong can you get rid of this cyclops for me?";
     NSCharacterSet *separators = [NSCharacterSet whitespaceAndNewlineCharacterSet];
     NSArray *words = [dialouge componentsSeparatedByCharactersInSet:separators];
     

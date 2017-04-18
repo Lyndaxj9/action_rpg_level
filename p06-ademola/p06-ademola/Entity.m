@@ -21,7 +21,7 @@
         _defense = .1;
         _health = [[Health alloc] init];
         timePassed = 0;
-        attackSpeed = 1;
+        attackSpeed = .5;
         usedSkill = @"";
         death = FALSE;
     }

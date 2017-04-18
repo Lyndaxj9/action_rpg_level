@@ -43,12 +43,15 @@
 {
     float width = self.size.width * 0.4;
     float height = 25;
+    //enemy healthbar
     self.healthBar = [[HealthBar alloc]initWithWidth:width andHeight:height];
     self.healthBar.position = CGPointMake(width/2+25, self.size.height - self.healthBar.barHeight);
     [self addChild:self.healthBar];
     
+    //player healthbar
     self.healthBar1 = [[HealthBar alloc] initWithWidth:width andHeight:height];
     self.healthBar1.position = CGPointMake(self.size.width-(width/2+25), self.size.height - self.healthBar1.barHeight);
+    self.healthBar1.xScale = self.healthBar1.xScale * -1;
     [self addChild:self.healthBar1];
 }
 
@@ -95,6 +98,7 @@
         [_battleN deathAnimationFor:1];
         _pDeathAniSet = TRUE;
     }
+    [_battleN updateSkillCooldown:[_testC getSkillStatus]];
 
 }
 

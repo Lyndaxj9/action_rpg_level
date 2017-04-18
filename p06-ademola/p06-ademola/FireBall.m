@@ -10,6 +10,7 @@
 
 @implementation FireBall
 @synthesize attackName;
+@synthesize cooldown, timePassed;
 
 - (id)init
 {
@@ -17,8 +18,8 @@
     
     if(self){
         _minDamage = 12;
-        _cooldown = 2.25;
-        _timePassed = _cooldown;
+        cooldown = 1.25;
+        timePassed = cooldown;
         attackName = @"fireball";
     }
     
@@ -33,6 +34,6 @@
 
 - (BOOL)skillReady
 {
-    return (_timePassed >= _cooldown);
+    return (timePassed >= cooldown);
 }
 @end

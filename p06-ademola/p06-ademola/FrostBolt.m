@@ -10,6 +10,7 @@
 
 @implementation FrostBolt
 @synthesize attackName;
+@synthesize cooldown, timePassed;
 
 - (id)init
 {
@@ -17,8 +18,8 @@
     
     if(self){
         _minDamage = 13;
-        _cooldown = 2.5;
-        _timePassed = _cooldown;
+        cooldown = 1.5;
+        timePassed = cooldown;
         attackName = @"frostbolt";
     }
     
@@ -33,7 +34,7 @@
 
 - (BOOL)skillReady
 {
-    return (_timePassed >= _cooldown);
+    return (timePassed >= cooldown);
 }
 
 @end

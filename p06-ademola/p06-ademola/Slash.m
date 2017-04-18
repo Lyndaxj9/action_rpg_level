@@ -18,7 +18,7 @@
     
     if(self){
         _minDamage = 20; //prev: 10
-        cooldown = 1.5;
+        cooldown = .5;
         timePassed = cooldown;
         attackName = @"slash";
     }

@@ -18,7 +18,7 @@
     
     if(self){
         _minDamage = 10;
-        cooldown = 2;
+        cooldown = 1;
         timePassed = cooldown;
         attackName = @"magicblast";
     }

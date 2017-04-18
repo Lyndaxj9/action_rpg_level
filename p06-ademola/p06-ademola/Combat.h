@@ -24,10 +24,10 @@
 @property (nonatomic) FireBall *fb;
 @property (nonatomic) FrostBolt *ib;
 @property (nonatomic) Lightning *lg;
-@property (nonatomic) Heal *heal;
+@property (nonatomic) Heal *heal, *healE;
 @property (nonatomic) Slash *slash;
 
-
+@property (nonatomic) NSMutableArray *skillStatus, *skills;
 @property (nonatomic) double attackSpeed;
 @property (nonatomic) double timePassed;
 @property (nonatomic) BOOL gameOver;
@@ -40,5 +40,6 @@
 - (void)checkHealth;
 - (void)gameEnd;
 - (BOOL)getGameOver;
+- (NSMutableArray *)getSkillStatus;
 //some function to handle player attacks
 @end
