@@ -47,8 +47,13 @@
     //actually do
     
     //NSLog(@"useSKill called");
-    usedSkill = [basicSkill attackName];
-    [basicSkill execute:target];
+    if([basicSkill skillReady]){
+        usedSkill = [basicSkill attackName];
+        [basicSkill execute:target];
+        [basicSkill setTimePassed:0.0];
+    } else {
+        NSLog(@"%@ on cooldown", [basicSkill attackName]);
+    }
 }
 
 @end

@@ -17,7 +17,8 @@
     
     if(self){
         _minDamage = 12;
-        _cooldown = 7;
+        _cooldown = 2.25;
+        _timePassed = _cooldown;
         attackName = @"fireball";
     }
     
@@ -30,4 +31,8 @@
     [a_target takeDamage:_minDamage];
 }
 
+- (BOOL)skillReady
+{
+    return (_timePassed >= _cooldown);
+}
 @end

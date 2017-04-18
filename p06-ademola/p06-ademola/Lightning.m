@@ -17,7 +17,8 @@
     
     if(self){
         _minDamage = 15;
-        _cooldown = 7;
+        _cooldown = 2.75;
+        _timePassed = _cooldown;
         attackName = @"lightning";
     }
     
@@ -28,6 +29,11 @@
 {
     NSLog(@"[Lightning] execute:(Entity*) called");
     [a_target takeDamage:_minDamage];
+}
+
+- (BOOL)skillReady
+{
+    return (_timePassed >= _cooldown);
 }
 
 @end

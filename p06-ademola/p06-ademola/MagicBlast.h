@@ -16,5 +16,6 @@
 @property (nonatomic) NSString *attackName;
 
 - (void)execute:(Entity *)a_target;
+- (BOOL)skillReady;
 
 @end

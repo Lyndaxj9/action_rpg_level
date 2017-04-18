@@ -10,6 +10,7 @@
 
 @implementation Slash
 @synthesize attackName;
+@synthesize cooldown, timePassed;
 
 - (id)init
 {
@@ -17,7 +18,8 @@
     
     if(self){
         _minDamage = 20; //prev: 10
-        _cooldown = 1;
+        cooldown = 1.5;
+        timePassed = cooldown;
         attackName = @"slash";
     }
     
@@ -28,6 +30,11 @@
 {
     NSLog(@"[Slash] execute:(Entity*) called");
     [a_target takeDamage:_minDamage];
+}
+
+- (BOOL)skillReady
+{
+    return (timePassed >= cooldown);
 }
 
 @end

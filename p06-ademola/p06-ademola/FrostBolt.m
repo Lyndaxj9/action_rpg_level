@@ -17,7 +17,8 @@
     
     if(self){
         _minDamage = 13;
-        _cooldown = 5;
+        _cooldown = 2.5;
+        _timePassed = _cooldown;
         attackName = @"frostbolt";
     }
     
@@ -29,4 +30,10 @@
     NSLog(@"[FrostBolt] execute:(Entity*) called");
     [a_target takeDamage:_minDamage];
 }
+
+- (BOOL)skillReady
+{
+    return (_timePassed >= _cooldown);
+}
+
 @end

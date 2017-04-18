@@ -10,6 +10,7 @@
 
 @implementation MagicBlast
 @synthesize attackName;
+@synthesize cooldown, timePassed;
 
 - (id)init
 {
@@ -17,7 +18,8 @@
     
     if(self){
         _minDamage = 10;
-        _cooldown = 5;
+        cooldown = 2;
+        timePassed = cooldown;
         attackName = @"magicblast";
     }
     
@@ -28,6 +30,11 @@
 {
     NSLog(@"[MagicBlast] execute:(Entity*) called");
     [a_target takeDamage:_minDamage];
+}
+
+- (BOOL)skillReady
+{
+    return (timePassed >= cooldown);
 }
 
 @end

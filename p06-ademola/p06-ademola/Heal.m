@@ -17,7 +17,8 @@
     
     if(self){
         _minDamage = -15;
-        _cooldown = 7;
+        _cooldown = 3;
+        _timePassed = _cooldown;
         attackName = @"heal";
     }
     
@@ -30,4 +31,8 @@
     [a_target takeDamage:_minDamage];
 }
 
+- (BOOL)skillReady
+{
+    return (_timePassed >= _cooldown);
+}
 @end

@@ -12,6 +12,8 @@
 
 @protocol BasicSkill <NSObject>
 @property (nonatomic) NSString *attackName;
+@property (nonatomic) double cooldown, timePassed;
 
 - (void)execute:(Entity *)target;
+- (BOOL)skillReady;
 @end

@@ -12,8 +12,6 @@
 #import "HealthBar.h"
 #import "Entity.h"
 #import "Combat.h"
-#import "MagicBlast.h"
-#import "FireBall.h"
 
 @interface BattleScene : SKScene
 @property (nonatomic) BattleN *battleN;
@@ -24,8 +22,6 @@
 @property (nonatomic) BOOL pDeathAniSet;
 
 @property (nonatomic) Entity *testE, *testP;
-@property (nonatomic) MagicBlast *mb;
-@property (nonatomic) FireBall *fb;
 
 @property (nonatomic) NSTimeInterval deltaTime;
 @property (nonatomic) NSTimeInterval previousTime;

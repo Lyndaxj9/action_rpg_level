@@ -125,6 +125,13 @@
 - (void)update:(NSTimeInterval)deltaTime
 {
     _enemy.timePassed += deltaTime;
+    _mb.timePassed += deltaTime;
+    _fb.timePassed += deltaTime;
+    _ib.timePassed += deltaTime;
+    _lg.timePassed += deltaTime;
+    _heal.timePassed += deltaTime;
+    _slash.timePassed += deltaTime;
+    //NSLog(@"timePassed: %f", _mb.timePassed);
     //NSLog(@"timePassed: %f", _timePassed);
     if(_enemy.timePassed > _enemy.attackSpeed && !_gameOver){
         //if(_timePassed > _attackSpeed){
