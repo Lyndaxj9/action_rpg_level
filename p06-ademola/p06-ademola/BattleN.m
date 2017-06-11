@@ -236,14 +236,14 @@
 - (void)deathAnimationFor:(int)entityid
 {
     _entityDefeated = entityid;
-    if(entityid == 0){
+    if(entityid == 0){ //enemy defeat
         [_enemy removeActionForKey:@"idleAni"];
         SKAction *seq = [SKAction repeatActionForever:_edefeat];
         [_enemy runAction:seq withKey:@"defeat"];
         
         [_player removeActionForKey:@"idleAni"];
         [_player runAction:[SKAction repeatActionForever:_pvictory] withKey:@"victory"];
-    } else if(entityid == 1){
+    } else if(entityid == 1){ //player defeat
         [_player removeActionForKey:@"idleAni"];
         //[_player removeActionForKey:@"i"];
         [_player runAction:_pdefeat withKey:@"defeat"];
@@ -253,6 +253,23 @@
         [_enemy runAction:[SKAction repeatActionForever:_evictory] withKey:@"victory"];
     }
     [self gameOverMessage];
+}
+
+- (void)resetAnimaiton
+{
+    if(_entityDefeated == 0) { //enemy defeated
+        [_enemy removeActionForKey:@"defeat"];
+        [_player removeActionForKey:@"victory"];
+        
+        [_player runAction:[SKAction repeatActionForever:_mrg] withKey:@"idleAni"];
+        [_enemy runAction:[SKAction repeatActionForever:_obg] withKey:@"idleAni"];
+    } else if(_entityDefeated == 1) { //player defeated
+        [_enemy removeActionForKey:@"victory"];
+        
+        [_player runAction:[SKAction repeatActionForever:_mrg] withKey:@"idleAni"];
+        [_enemy runAction:[SKAction repeatActionForever:_obg] withKey:@"idleAni"];
+        
+    }
 }
 
 //Displays message for when the game is over

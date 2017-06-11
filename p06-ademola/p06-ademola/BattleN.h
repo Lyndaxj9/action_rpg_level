@@ -21,6 +21,7 @@
 @property (nonatomic) SKAction *eslash, *edamage, *eheal, *edefeat, *evictory;
 @property (nonatomic) SKAction *pspell, *pdamage, *pheal, *pdefeat, *pvictory;
 
+//0 means enemy defeated 1 means player defeated
 @property (nonatomic) int entityDefeated;
 @property (nonatomic) NSMutableArray *cooldown;
 
@@ -28,5 +29,6 @@
 //- (void)animateSkill:(NSString *)skillName;
 - (void)animateSkill:(NSString *)skillName withId:(int)entityid;
 - (void)deathAnimationFor:(int)entityid;
+- (void)resetAnimaiton;
 - (void)updateSkillCooldown:(NSMutableArray *)sS;
 @end

@@ -47,6 +47,11 @@
     self.current = self.max;
 }
 
+- (void)resetHealth
+{
+    self.current = self.max;
+}
+
 - (float)getCurrentHealth
 {
     return self.current;

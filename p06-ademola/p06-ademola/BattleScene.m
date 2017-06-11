@@ -84,10 +84,15 @@
     }
     if([_testC getGameOver] && ([node.name isEqualToString:@"tryAgain"] || [node.name isEqualToString:@"tryAgainL"])) {
         NSLog(@"Restart Game");
+        [_health resetHealth];
+        [_health1 resetHealth];
+        [_battleN resetAnimaiton];
         /*
-         Reset health
+         - Reset health
          Reset cooldowns
          Reset gameover vars
+         - Reset gameover death animation
+         Remove button and you...
          */
     }
 

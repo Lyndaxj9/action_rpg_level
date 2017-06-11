@@ -17,6 +17,7 @@
 - (void) update:(NSTimeInterval) deltaTime;
 - (void) damageHealth:(float) damage;
 - (void) setHealth:(float) health;
+- (void) resetHealth;
 - (float)getCurrentHealth;
 - (float)getMaxHealth;
 @end
