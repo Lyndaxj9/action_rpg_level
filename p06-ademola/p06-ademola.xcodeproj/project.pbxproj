@@ -37,6 +37,7 @@
 		BDDD390C1EA1C200001CEE0E /* magesprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = BDDD390B1EA1C200001CEE0E /* magesprites.atlas */; };
 		BDF696591EA4516600DB8020 /* FrostBolt.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF696581EA4516600DB8020 /* FrostBolt.m */; };
 		BDF6965C1EA4525700DB8020 /* Lightning.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF6965B1EA4525700DB8020 /* Lightning.m */; };
+		BDF6CBAD1EEDFA5000DD6697 /* Button_16.png in Resources */ = {isa = PBXBuildFile; fileRef = BDF6CBAC1EEDFA5000DD6697 /* Button_16.png */; };
 		BDFA9C001E9B2ADD00E1D204 /* IntroScene.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFA9BFF1E9B2ADD00E1D204 /* IntroScene.m */; };
 		BDFA9C031E9B2AEF00E1D204 /* BattleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFA9C021E9B2AEF00E1D204 /* BattleScene.m */; };
 /* End PBXBuildFile section */
@@ -90,6 +91,7 @@
 		BDF696581EA4516600DB8020 /* FrostBolt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrostBolt.m; sourceTree = "<group>"; };
 		BDF6965A1EA4525700DB8020 /* Lightning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lightning.h; sourceTree = "<group>"; };
 		BDF6965B1EA4525700DB8020 /* Lightning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lightning.m; sourceTree = "<group>"; };
+		BDF6CBAC1EEDFA5000DD6697 /* Button_16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button_16.png; sourceTree = "<group>"; };
 		BDFA9BFE1E9B2ADD00E1D204 /* IntroScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroScene.h; sourceTree = "<group>"; };
 		BDFA9BFF1E9B2ADD00E1D204 /* IntroScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroScene.m; sourceTree = "<group>"; };
 		BDFA9C011E9B2AEF00E1D204 /* BattleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BattleScene.h; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				BDD0035F1EA5B723002859CC /* generic villager.png */,
 				BDD003601EA5B723002859CC /* young villager.png */,
 				BDBE36671E972E6400589699 /* red-button-hi.png */,
+				BDF6CBAC1EEDFA5000DD6697 /* Button_16.png */,
 				BDD003551EA55AE1002859CC /* cave_pixel_battle.png */,
 				BDD003561EA55AE1002859CC /* desert_xy.png */,
 				BDBE364A1E972A4000589699 /* main.m */,
@@ -282,6 +285,7 @@
 				BDD0035E1EA567F8002859CC /* YOUWIN.png in Resources */,
 				BDDD390C1EA1C200001CEE0E /* magesprites.atlas in Resources */,
 				BDD003581EA55AE1002859CC /* desert_xy.png in Resources */,
+				BDF6CBAD1EEDFA5000DD6697 /* Button_16.png in Resources */,
 				BDBE365B1E972A4100589699 /* Main.storyboard in Resources */,
 				BDBE365D1E972A4100589699 /* Assets.xcassets in Resources */,
 				BDC63C5F1EA07E31002FAABA /* Notes.rtf in Resources */,

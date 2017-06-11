@@ -255,8 +255,11 @@
     [self gameOverMessage];
 }
 
+//Displays message for when the game is over
+//Either "YOUWIN" or "YOULOSE"
 - (void)gameOverMessage
 {
+    //creating images to display when method called
     if(_entityDefeated == 0){
         SKSpriteNode *yw = [SKSpriteNode spriteNodeWithImageNamed:@"YOUWIN"];
         yw.position = CGPointMake(_width/2, (_height/4)*3);
@@ -268,6 +271,23 @@
         yl.zPosition = 5;
         [self addChild:yl];
     }
+    
+    SKSpriteNode *tryAgain = [SKSpriteNode spriteNodeWithImageNamed:@"Button_16"];
+    tryAgain.position = CGPointMake(_width/2, (_height/5)*3+35);
+    tryAgain.zPosition = 5;
+    tryAgain.xScale = 0.25;
+    tryAgain.yScale = 0.25;
+    tryAgain.name = @"tryAgain";
+    [self addChild:tryAgain];
+    
+    SKLabelNode *l = [SKLabelNode labelNodeWithFontNamed:@"Cochin-Bold"];
+    l.fontSize = 70;
+    l.fontColor = [SKColor blackColor];
+    l.position = CGPointMake(0, 0);
+    l.zPosition = 5;
+    l.text = @"Try Again";
+    l.name = [NSString stringWithFormat:@"tryAgainL"];
+    [tryAgain addChild:l];
 }
 
 - (void)updateSkillCooldown:(NSMutableArray *)sS

@@ -82,6 +82,14 @@
     if([_testC getGameOver] && [_testE death]){
         [_battleN deathAnimationFor:0];
     }
+    if([_testC getGameOver] && ([node.name isEqualToString:@"tryAgain"] || [node.name isEqualToString:@"tryAgainL"])) {
+        NSLog(@"Restart Game");
+        /*
+         Reset health
+         Reset cooldowns
+         Reset gameover vars
+         */
+    }
 
 }
 
