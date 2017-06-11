@@ -46,6 +46,7 @@
         _cooldown = [NSMutableArray array];
         CGSize spellSize = CGSizeMake((_width-8*6)/5, _height/6-20);
         
+        NSArray *spellNames = @[@"blast", @"fire",@"frost", @"light", @"heal"];
         for(int i = 0; i < 5; i++){
             SKSpriteNode *s = [SKSpriteNode spriteNodeWithColor:[UIColor greenColor] size:spellSize];
             CGPoint spellPos = CGPointMake(s.size.width/2+8*(i+1)+s.size.width*i, s.size.height/2+10);
@@ -65,7 +66,8 @@
             l.fontColor = [SKColor blackColor];
             l.position = CGPointMake(0, 0);
             l.zPosition = 5;
-            l.text = [NSString stringWithFormat:@"%d",i];
+            //l.text = [NSString stringWithFormat:@"%d",i];
+            l.text = spellNames[i];
             l.name = [NSString stringWithFormat:@"spellbutton0%d", i];
             [s addChild:l];
         }
