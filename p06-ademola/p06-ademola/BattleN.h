@@ -13,6 +13,7 @@
 @property (nonatomic) SKSpriteNode *player, *enemy;
 @property (nonatomic) SKSpriteNode *spell, *potion;
 @property (nonatomic) SKSpriteNode *healthBar;
+@property (nonatomic) SKSpriteNode *ym, *tryAgain;
 @property (nonatomic) SKShapeNode *hotbar;
 
 @property (nonatomic) SKTextureAtlas *es;
@@ -23,6 +24,7 @@
 
 //0 means enemy defeated 1 means player defeated
 @property (nonatomic) int entityDefeated;
+@property (nonatomic) BOOL pDeathAniSet;
 @property (nonatomic) NSMutableArray *cooldown;
 
 - (id)initWithSize:(CGSize)frame;
@@ -30,5 +32,6 @@
 - (void)animateSkill:(NSString *)skillName withId:(int)entityid;
 - (void)deathAnimationFor:(int)entityid;
 - (void)resetAnimaiton;
+- (void)removeGOMessage;
 - (void)updateSkillCooldown:(NSMutableArray *)sS;
 @end

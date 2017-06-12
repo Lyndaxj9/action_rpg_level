@@ -23,6 +23,7 @@
     [self addChild:_battleN];
     
     _pDeathAniSet = FALSE;
+    _maxCooldown = 10;
     
     _testE = [[Entity alloc]init];
     _testP = [[Entity alloc]init];
@@ -87,13 +88,11 @@
         [_health resetHealth];
         [_health1 resetHealth];
         [_battleN resetAnimaiton];
-        /*
-         - Reset health
-         Reset cooldowns
-         Reset gameover vars
-         - Reset gameover death animation
-         Remove button and you...
-         */
+        [_battleN removeGOMessage];
+        [_testC update:_maxCooldown];
+        [_battleN updateSkillCooldown:[_testC getSkillStatus]];
+        [_testC gamereStart];
+
     }
 
 }
@@ -107,9 +106,8 @@
     [_testE setUsedSkill:@""];
     [self.healthBar updateWithHealth:self.health];
     [self.healthBar1 updateWithHealth:self.health1];
-    if([_testC getGameOver] && [_testP death] && !_pDeathAniSet){
+    if([_testC getGameOver] && [_testP death] && ![_battleN pDeathAniSet]){
         [_battleN deathAnimationFor:1];
-        _pDeathAniSet = TRUE;
     }
     [_battleN updateSkillCooldown:[_testC getSkillStatus]];
 

@@ -39,6 +39,7 @@
 - (void)selectAttack:(int)attackNum;
 - (void)checkHealth;
 - (void)gameEnd;
+- (void)gamereStart;
 - (BOOL)getGameOver;
 - (NSMutableArray *)getSkillStatus;
 //some function to handle player attacks

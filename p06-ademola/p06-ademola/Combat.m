@@ -113,7 +113,7 @@
         _gameOver = TRUE;
         [_enemy setDeath:TRUE];
     } else if([_pH getCurrentHealth] <= 0){
-        NSLog(@"player current health: %f", [_pH getCurrentHealth]);
+        //NSLog(@"player current health: %f", [_pH getCurrentHealth]);
         _gameOver = TRUE;
         [_player setDeath:TRUE];
     }
@@ -126,6 +126,13 @@
     } else if([_player death]){
         NSLog(@"Player You Lose");
     }
+}
+
+- (void)gamereStart
+{
+    [_enemy setDeath:FALSE];
+    [_player setDeath:FALSE];
+    _gameOver = FALSE;
 }
 
 - (BOOL)getGameOver
@@ -142,15 +149,17 @@
 {
     _enemy.timePassed += deltaTime;
 
+    //update for cooldowns
     for(int i = 0; i < 7; i++){
+        //update the amount of time that has
+        //passed for each skill
         [[_skills objectAtIndex:i] setTimePassed:([[_skills objectAtIndex:i] timePassed] + deltaTime)];
         if(i < 5){
-        [_skillStatus replaceObjectAtIndex:i withObject:[NSNumber numberWithBool:[[_skills objectAtIndex:i] skillReady]]];
+            //for the player skills set the bool for skillReady
+            [_skillStatus replaceObjectAtIndex:i withObject:[NSNumber numberWithBool:[[_skills objectAtIndex:i] skillReady]]];
         }
     }
     
-    //NSLog(@"timePassed: %f", _mb.timePassed);
-    //NSLog(@"timePassed: %f", _timePassed);
     if(_enemy.timePassed > _enemy.attackSpeed && !_gameOver){
         //if(_timePassed > _attackSpeed){
         [self enemyAI];

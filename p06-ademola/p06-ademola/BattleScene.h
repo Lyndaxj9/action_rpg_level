@@ -23,8 +23,8 @@
 
 @property (nonatomic) Entity *testE, *testP;
 
-@property (nonatomic) NSTimeInterval deltaTime;
-@property (nonatomic) NSTimeInterval previousTime;
+@property (nonatomic) NSTimeInterval deltaTime, previousTime, maxCooldown;
+
 
 - (void)initHealth;
 - (void)initHealthBar;

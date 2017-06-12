@@ -9,6 +9,7 @@
 #import "BattleN.h"
 
 @implementation BattleN
+@synthesize pDeathAniSet;
 
 -(id)initWithSize:(CGSize)frame
 {
@@ -193,6 +194,8 @@
     
     _pdefeat = [SKAction animateWithTextures:playerDefeat timePerFrame:0.2 resize:YES restore:NO];
     
+    pDeathAniSet = FALSE;
+    
     //player victory animation
     NSArray *playerVictory = @[[playerSpell objectAtIndex:0], [playerSpell objectAtIndex:1], [playerSpell objectAtIndex:2], [playerSpell objectAtIndex:1]];
    
@@ -245,7 +248,7 @@
         [_player runAction:[SKAction repeatActionForever:_pvictory] withKey:@"victory"];
     } else if(entityid == 1){ //player defeat
         [_player removeActionForKey:@"idleAni"];
-        //[_player removeActionForKey:@"i"];
+        pDeathAniSet = TRUE;
         [_player runAction:_pdefeat withKey:@"defeat"];
         _player.texture = [SKTexture textureWithImageNamed:@"mage_defeat_9"];
         
@@ -266,6 +269,7 @@
     } else if(_entityDefeated == 1) { //player defeated
         [_enemy removeActionForKey:@"victory"];
         
+        pDeathAniSet = FALSE;
         [_player runAction:[SKAction repeatActionForever:_mrg] withKey:@"idleAni"];
         [_enemy runAction:[SKAction repeatActionForever:_obg] withKey:@"idleAni"];
         
@@ -278,24 +282,23 @@
 {
     //creating images to display when method called
     if(_entityDefeated == 0){
-        SKSpriteNode *yw = [SKSpriteNode spriteNodeWithImageNamed:@"YOUWIN"];
-        yw.position = CGPointMake(_width/2, (_height/4)*3);
-        yw.zPosition = 5;
-        [self addChild:yw];
+        _ym = [SKSpriteNode spriteNodeWithImageNamed:@"YOUWIN"];
     } else if(_entityDefeated == 1){
-        SKSpriteNode *yl = [SKSpriteNode spriteNodeWithImageNamed:@"YOULOSE"];
-        yl.position = CGPointMake(_width/2, (_height/4)*3);
-        yl.zPosition = 5;
-        [self addChild:yl];
+        _ym = [SKSpriteNode spriteNodeWithImageNamed:@"YOULOSE"];
     }
+
+    _ym.position = CGPointMake(_width/2, (_height/4)*3);
+    _ym.zPosition = 5;
+    [self addChild:_ym];
     
-    SKSpriteNode *tryAgain = [SKSpriteNode spriteNodeWithImageNamed:@"Button_16"];
-    tryAgain.position = CGPointMake(_width/2, (_height/5)*3+35);
-    tryAgain.zPosition = 5;
-    tryAgain.xScale = 0.25;
-    tryAgain.yScale = 0.25;
-    tryAgain.name = @"tryAgain";
-    [self addChild:tryAgain];
+    //create the button to restart the game
+    _tryAgain = [SKSpriteNode spriteNodeWithImageNamed:@"Button_16"];
+    _tryAgain.position = CGPointMake(_width/2, (_height/5)*3+35);
+    _tryAgain.zPosition = 5;
+    _tryAgain.xScale = 0.25;
+    _tryAgain.yScale = 0.25;
+    _tryAgain.name = @"tryAgain";
+    [self addChild:_tryAgain];
     
     SKLabelNode *l = [SKLabelNode labelNodeWithFontNamed:@"Cochin-Bold"];
     l.fontSize = 70;
@@ -304,15 +307,26 @@
     l.zPosition = 5;
     l.text = @"Try Again";
     l.name = [NSString stringWithFormat:@"tryAgainL"];
-    [tryAgain addChild:l];
+    [_tryAgain addChild:l];
 }
 
-- (void)updateSkillCooldown:(NSMutableArray *)sS
+- (void)removeGOMessage
+{
+    [_ym removeFromParent];
+    [_tryAgain removeFromParent];
+}
+
+/*
+ * Checks if the skill is still on cooldown
+ * If not remove blocking spritenode
+ * If so add blocking spritenode
+ */
+- (void)updateSkillCooldown:(NSMutableArray *)skillStatus
 {
     for(int i = 0; i < 5; i++){
-        if([[sS objectAtIndex:i] intValue] == 1 && [[_cooldown objectAtIndex:i]parent] != nil){
+        if([[skillStatus objectAtIndex:i] intValue] == 1 && [[_cooldown objectAtIndex:i]parent] != nil){
             [[_cooldown objectAtIndex:i] removeFromParent];
-        } else if ([[sS objectAtIndex:i] intValue] == 0 && [[_cooldown objectAtIndex:i]parent] == nil){
+        } else if ([[skillStatus objectAtIndex:i] intValue] == 0 && [[_cooldown objectAtIndex:i]parent] == nil){
             [self addChild:[_cooldown objectAtIndex:i]];
         }
     }
