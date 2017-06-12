@@ -24,7 +24,7 @@
 
 //0 means enemy defeated 1 means player defeated
 @property (nonatomic) int entityDefeated;
-@property (nonatomic) BOOL pDeathAniSet;
+@property (nonatomic) BOOL pDeathAniSet, eDeathAniSet;
 @property (nonatomic) NSMutableArray *cooldown;
 
 - (id)initWithSize:(CGSize)frame;

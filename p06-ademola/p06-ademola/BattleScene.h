@@ -28,4 +28,5 @@
 
 - (void)initHealth;
 - (void)initHealthBar;
+- (void)restartGame;
 @end

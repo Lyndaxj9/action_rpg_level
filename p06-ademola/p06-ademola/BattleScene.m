@@ -22,7 +22,7 @@
     _battleN = [[BattleN alloc]initWithSize:self.size];
     [self addChild:_battleN];
     
-    _pDeathAniSet = FALSE;
+    //_pDeathAniSet = FALSE;
     _maxCooldown = 10;
     
     _testE = [[Entity alloc]init];
@@ -80,21 +80,26 @@
         [_battleN animateSkill:[_testP usedSkill] withId:1];
         [_testP setUsedSkill:@""];
     }
-    if([_testC getGameOver] && [_testE death]){
+    if([_testC getGameOver] && [_testE death] && ![_battleN eDeathAniSet]){
         [_battleN deathAnimationFor:0];
     }
     if([_testC getGameOver] && ([node.name isEqualToString:@"tryAgain"] || [node.name isEqualToString:@"tryAgainL"])) {
-        NSLog(@"Restart Game");
-        [_health resetHealth];
-        [_health1 resetHealth];
-        [_battleN resetAnimaiton];
-        [_battleN removeGOMessage];
-        [_testC update:_maxCooldown];
-        [_battleN updateSkillCooldown:[_testC getSkillStatus]];
-        [_testC gamereStart];
-
+        [self restartGame];
     }
 
+}
+
+- (void)restartGame
+{
+    NSLog(@"Restart Game");
+    [_health resetHealth];
+    [_health1 resetHealth];
+    [_battleN resetAnimaiton];
+    [_battleN removeGOMessage];
+    [_testC update:_maxCooldown];
+    [_battleN updateSkillCooldown:[_testC getSkillStatus]];
+    [_testC gamereStart];
+    //set cyclops attacktime passed to 0
 }
 
 - (void)update:(CFTimeInterval)currentTime

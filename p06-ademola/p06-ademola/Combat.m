@@ -133,6 +133,7 @@
     [_enemy setDeath:FALSE];
     [_player setDeath:FALSE];
     _gameOver = FALSE;
+    _enemy.timePassed = 0;
 }
 
 - (BOOL)getGameOver

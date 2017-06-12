@@ -9,7 +9,7 @@
 #import "BattleN.h"
 
 @implementation BattleN
-@synthesize pDeathAniSet;
+@synthesize pDeathAniSet, eDeathAniSet;
 
 -(id)initWithSize:(CGSize)frame
 {
@@ -147,6 +147,8 @@
 
     _edefeat = [SKAction animateWithTextures:enemyDefeat timePerFrame:0.7 resize:YES restore:NO];
     
+    eDeathAniSet = FALSE;
+    
     //enemy victory animation
     SKTexture *v0 = [SKTexture textureWithImageNamed:@"ogre_win_0"];
     SKTexture *v1 = [SKTexture textureWithImageNamed:@"ogre_win_1"];
@@ -242,6 +244,7 @@
     if(entityid == 0){ //enemy defeat
         [_enemy removeActionForKey:@"idleAni"];
         SKAction *seq = [SKAction repeatActionForever:_edefeat];
+        eDeathAniSet = TRUE;
         [_enemy runAction:seq withKey:@"defeat"];
         
         [_player removeActionForKey:@"idleAni"];
@@ -262,6 +265,7 @@
 {
     if(_entityDefeated == 0) { //enemy defeated
         [_enemy removeActionForKey:@"defeat"];
+        eDeathAniSet = FALSE;
         [_player removeActionForKey:@"victory"];
         
         [_player runAction:[SKAction repeatActionForever:_mrg] withKey:@"idleAni"];
