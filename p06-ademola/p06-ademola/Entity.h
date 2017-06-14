@@ -25,5 +25,6 @@
 - (void)takeDamage:(float)damageAmnt;
 - (Health *)getHealth;
 - (void)useSKill:(id<BasicSkill>)basicSkill On:(Entity *)target;
+- (void)setAttackSpeed:(double)speed;
 
 @end

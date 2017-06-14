@@ -26,6 +26,7 @@
     _maxCooldown = 10;
     
     _testE = [[Entity alloc]init];
+    [_testE setAttackSpeed:0.75];
     _testP = [[Entity alloc]init];
     self.health = [_testE getHealth];
     self.health1 = [_testP getHealth];

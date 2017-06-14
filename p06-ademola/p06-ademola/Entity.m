@@ -56,4 +56,9 @@
     }
 }
 
+- (void)setAttackSpeed:(double)speed
+{
+    attackSpeed = speed;
+}
+
 @end

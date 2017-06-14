@@ -36,7 +36,13 @@
         [self createEnemy];
         [self createPlayer];
         
-        //initialize background
+        //initialize bg sky image
+        SKSpriteNode *sky = [SKSpriteNode spriteNodeWithImageNamed:@"skyclouds"];
+        sky.position = CGPointMake(_width/2, 570);
+        sky.zPosition = -3;
+        [self addChild:sky];
+        
+        //initialize bg cave image
         SKSpriteNode *bg = [SKSpriteNode spriteNodeWithImageNamed:@"cave_pixel_battle"];
         bg.position = CGPointMake(_width/2+30, 275);
         bg.zPosition = -2;

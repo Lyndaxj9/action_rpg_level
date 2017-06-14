@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BDBAEEFC1EF1C3610012915B /* pixel sky.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BDBAEEFB1EF1C3610012915B /* pixel sky.jpg */; };
+		BDBAEEFE1EF1C4570012915B /* skyclouds.png in Resources */ = {isa = PBXBuildFile; fileRef = BDBAEEFD1EF1C4570012915B /* skyclouds.png */; };
 		BDBE364B1E972A4000589699 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BDBE364A1E972A4000589699 /* main.m */; };
 		BDBE364E1E972A4000589699 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BDBE364D1E972A4000589699 /* AppDelegate.m */; };
 		BDBE36551E972A4100589699 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = BDBE36541E972A4100589699 /* GameScene.m */; };
@@ -43,6 +45,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BDBAEEFB1EF1C3610012915B /* pixel sky.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "pixel sky.jpg"; sourceTree = "<group>"; };
+		BDBAEEFD1EF1C4570012915B /* skyclouds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skyclouds.png; sourceTree = "<group>"; };
 		BDBE36461E972A4000589699 /* p06-ademola.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "p06-ademola.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDBE364A1E972A4000589699 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BDBE364C1E972A4000589699 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -158,6 +162,8 @@
 				BDF6CBAC1EEDFA5000DD6697 /* Button_16.png */,
 				BDD003551EA55AE1002859CC /* cave_pixel_battle.png */,
 				BDD003561EA55AE1002859CC /* desert_xy.png */,
+				BDBAEEFB1EF1C3610012915B /* pixel sky.jpg */,
+				BDBAEEFD1EF1C4570012915B /* skyclouds.png */,
 				BDBE364A1E972A4000589699 /* main.m */,
 				BDC63C5E1EA07E31002FAABA /* Notes.rtf */,
 			);
@@ -282,11 +288,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDBAEEFE1EF1C4570012915B /* skyclouds.png in Resources */,
 				BDD0035E1EA567F8002859CC /* YOUWIN.png in Resources */,
 				BDDD390C1EA1C200001CEE0E /* magesprites.atlas in Resources */,
 				BDD003581EA55AE1002859CC /* desert_xy.png in Resources */,
 				BDF6CBAD1EEDFA5000DD6697 /* Button_16.png in Resources */,
 				BDBE365B1E972A4100589699 /* Main.storyboard in Resources */,
+				BDBAEEFC1EF1C3610012915B /* pixel sky.jpg in Resources */,
 				BDBE365D1E972A4100589699 /* Assets.xcassets in Resources */,
 				BDC63C5F1EA07E31002FAABA /* Notes.rtf in Resources */,
 				BDD003611EA5B723002859CC /* generic villager.png in Resources */,
